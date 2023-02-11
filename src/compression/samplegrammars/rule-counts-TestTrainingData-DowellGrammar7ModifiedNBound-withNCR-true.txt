@@ -1,0 +1,321 @@
+B → <A|(> Vaa <A|)> (.06):1
+B → <A|(> Vac <C|)> (.06):1
+B → <A|(> Vag <G|)> (.06):1
+B → <A|(> Vau <U|)> (.06):59
+B → <C|(> Vca <A|)> (.06):1
+B → <C|(> Vcc <C|)> (.06):1
+B → <C|(> Vcg <G|)> (.06):96
+B → <C|(> Vcu <U|)> (.06):1
+B → <G|(> Vga <A|)> (.06):2
+B → <G|(> Vgc <C|)> (.06):143
+B → <G|(> Vgg <G|)> (.06):2
+B → <G|(> Vgu <U|)> (.06):43
+B → <U|(> Vua <A|)> (.06):50
+B → <U|(> Vuc <C|)> (.06):1
+B → <U|(> Vug <G|)> (.06):14
+B → <U|(> Vuu <U|)> (.06):1
+Baa → <A|(> Vaa <A|)> (.06):1
+Baa → <A|(> Vac <C|)> (.06):1
+Baa → <A|(> Vag <G|)> (.06):1
+Baa → <A|(> Vau <U|)> (.06):2
+Baa → <C|(> Vca <A|)> (.06):2
+Baa → <C|(> Vcc <C|)> (.06):1
+Baa → <C|(> Vcg <G|)> (.06):2
+Baa → <C|(> Vcu <U|)> (.06):1
+Baa → <G|(> Vga <A|)> (.06):1
+Baa → <G|(> Vgc <C|)> (.06):1
+Baa → <G|(> Vgg <G|)> (.06):1
+Baa → <G|(> Vgu <U|)> (.06):1
+Baa → <U|(> Vua <A|)> (.06):1
+Baa → <U|(> Vuc <C|)> (.06):1
+Baa → <U|(> Vug <G|)> (.06):1
+Baa → <U|(> Vuu <U|)> (.06):1
+Bac → <A|(> Vaa <A|)> (.06):1
+Bac → <A|(> Vac <C|)> (.06):1
+Bac → <A|(> Vag <G|)> (.06):1
+Bac → <A|(> Vau <U|)> (.06):1
+Bac → <C|(> Vca <A|)> (.06):1
+Bac → <C|(> Vcc <C|)> (.06):1
+Bac → <C|(> Vcg <G|)> (.06):2
+Bac → <C|(> Vcu <U|)> (.06):1
+Bac → <G|(> Vga <A|)> (.06):1
+Bac → <G|(> Vgc <C|)> (.06):1
+Bac → <G|(> Vgg <G|)> (.06):1
+Bac → <G|(> Vgu <U|)> (.06):1
+Bac → <U|(> Vua <A|)> (.06):1
+Bac → <U|(> Vuc <C|)> (.06):1
+Bac → <U|(> Vug <G|)> (.06):1
+Bac → <U|(> Vuu <U|)> (.06):1
+Bag → <A|(> Vaa <A|)> (.06):1
+Bag → <A|(> Vac <C|)> (.06):1
+Bag → <A|(> Vag <G|)> (.06):1
+Bag → <A|(> Vau <U|)> (.06):2
+Bag → <C|(> Vca <A|)> (.06):1
+Bag → <C|(> Vcc <C|)> (.06):1
+Bag → <C|(> Vcg <G|)> (.06):1
+Bag → <C|(> Vcu <U|)> (.06):1
+Bag → <G|(> Vga <A|)> (.06):1
+Bag → <G|(> Vgc <C|)> (.06):2
+Bag → <G|(> Vgg <G|)> (.06):1
+Bag → <G|(> Vgu <U|)> (.06):1
+Bag → <U|(> Vua <A|)> (.06):1
+Bag → <U|(> Vuc <C|)> (.06):1
+Bag → <U|(> Vug <G|)> (.06):2
+Bag → <U|(> Vuu <U|)> (.06):1
+Bau → <A|(> Vaa <A|)> (.06):1
+Bau → <A|(> Vac <C|)> (.06):1
+Bau → <A|(> Vag <G|)> (.06):1
+Bau → <A|(> Vau <U|)> (.06):27
+Bau → <C|(> Vca <A|)> (.06):1
+Bau → <C|(> Vcc <C|)> (.06):1
+Bau → <C|(> Vcg <G|)> (.06):62
+Bau → <C|(> Vcu <U|)> (.06):1
+Bau → <G|(> Vga <A|)> (.06):1
+Bau → <G|(> Vgc <C|)> (.06):60
+Bau → <G|(> Vgg <G|)> (.06):1
+Bau → <G|(> Vgu <U|)> (.06):9
+Bau → <U|(> Vua <A|)> (.06):41
+Bau → <U|(> Vuc <C|)> (.06):1
+Bau → <U|(> Vug <G|)> (.06):19
+Bau → <U|(> Vuu <U|)> (.06):1
+Bca → <A|(> Vaa <A|)> (.06):1
+Bca → <A|(> Vac <C|)> (.06):1
+Bca → <A|(> Vag <G|)> (.06):1
+Bca → <A|(> Vau <U|)> (.06):1
+Bca → <C|(> Vca <A|)> (.06):1
+Bca → <C|(> Vcc <C|)> (.06):1
+Bca → <C|(> Vcg <G|)> (.06):1
+Bca → <C|(> Vcu <U|)> (.06):1
+Bca → <G|(> Vga <A|)> (.06):1
+Bca → <G|(> Vgc <C|)> (.06):2
+Bca → <G|(> Vgg <G|)> (.06):1
+Bca → <G|(> Vgu <U|)> (.06):1
+Bca → <U|(> Vua <A|)> (.06):2
+Bca → <U|(> Vuc <C|)> (.06):1
+Bca → <U|(> Vug <G|)> (.06):1
+Bca → <U|(> Vuu <U|)> (.06):1
+Bcc → <A|(> Vaa <A|)> (.06):1
+Bcc → <A|(> Vac <C|)> (.06):1
+Bcc → <A|(> Vag <G|)> (.06):1
+Bcc → <A|(> Vau <U|)> (.06):1
+Bcc → <C|(> Vca <A|)> (.06):1
+Bcc → <C|(> Vcc <C|)> (.06):1
+Bcc → <C|(> Vcg <G|)> (.06):2
+Bcc → <C|(> Vcu <U|)> (.06):1
+Bcc → <G|(> Vga <A|)> (.06):1
+Bcc → <G|(> Vgc <C|)> (.06):1
+Bcc → <G|(> Vgg <G|)> (.06):1
+Bcc → <G|(> Vgu <U|)> (.06):1
+Bcc → <U|(> Vua <A|)> (.06):1
+Bcc → <U|(> Vuc <C|)> (.06):1
+Bcc → <U|(> Vug <G|)> (.06):2
+Bcc → <U|(> Vuu <U|)> (.06):1
+Bcg → <A|(> Vaa <A|)> (.06):2
+Bcg → <A|(> Vac <C|)> (.06):1
+Bcg → <A|(> Vag <G|)> (.06):2
+Bcg → <A|(> Vau <U|)> (.06):54
+Bcg → <C|(> Vca <A|)> (.06):1
+Bcg → <C|(> Vcc <C|)> (.06):2
+Bcg → <C|(> Vcg <G|)> (.06):107
+Bcg → <C|(> Vcu <U|)> (.06):2
+Bcg → <G|(> Vga <A|)> (.06):2
+Bcg → <G|(> Vgc <C|)> (.06):76
+Bcg → <G|(> Vgg <G|)> (.06):1
+Bcg → <G|(> Vgu <U|)> (.06):13
+Bcg → <U|(> Vua <A|)> (.06):56
+Bcg → <U|(> Vuc <C|)> (.06):1
+Bcg → <U|(> Vug <G|)> (.06):29
+Bcg → <U|(> Vuu <U|)> (.06):3
+Bcu → <A|(> Vaa <A|)> (.06):1
+Bcu → <A|(> Vac <C|)> (.06):1
+Bcu → <A|(> Vag <G|)> (.06):1
+Bcu → <A|(> Vau <U|)> (.06):1
+Bcu → <C|(> Vca <A|)> (.06):1
+Bcu → <C|(> Vcc <C|)> (.06):1
+Bcu → <C|(> Vcg <G|)> (.06):2
+Bcu → <C|(> Vcu <U|)> (.06):2
+Bcu → <G|(> Vga <A|)> (.06):1
+Bcu → <G|(> Vgc <C|)> (.06):1
+Bcu → <G|(> Vgg <G|)> (.06):1
+Bcu → <G|(> Vgu <U|)> (.06):1
+Bcu → <U|(> Vua <A|)> (.06):1
+Bcu → <U|(> Vuc <C|)> (.06):1
+Bcu → <U|(> Vug <G|)> (.06):1
+Bcu → <U|(> Vuu <U|)> (.06):1
+Bga → <A|(> Vaa <A|)> (.06):1
+Bga → <A|(> Vac <C|)> (.06):1
+Bga → <A|(> Vag <G|)> (.06):1
+Bga → <A|(> Vau <U|)> (.06):1
+Bga → <C|(> Vca <A|)> (.06):1
+Bga → <C|(> Vcc <C|)> (.06):2
+Bga → <C|(> Vcg <G|)> (.06):3
+Bga → <C|(> Vcu <U|)> (.06):1
+Bga → <G|(> Vga <A|)> (.06):1
+Bga → <G|(> Vgc <C|)> (.06):1
+Bga → <G|(> Vgg <G|)> (.06):1
+Bga → <G|(> Vgu <U|)> (.06):2
+Bga → <U|(> Vua <A|)> (.06):2
+Bga → <U|(> Vuc <C|)> (.06):1
+Bga → <U|(> Vug <G|)> (.06):1
+Bga → <U|(> Vuu <U|)> (.06):1
+Bgc → <A|(> Vaa <A|)> (.06):1
+Bgc → <A|(> Vac <C|)> (.06):2
+Bgc → <A|(> Vag <G|)> (.06):1
+Bgc → <A|(> Vau <U|)> (.06):51
+Bgc → <C|(> Vca <A|)> (.06):1
+Bgc → <C|(> Vcc <C|)> (.06):1
+Bgc → <C|(> Vcg <G|)> (.06):86
+Bgc → <C|(> Vcu <U|)> (.06):1
+Bgc → <G|(> Vga <A|)> (.06):1
+Bgc → <G|(> Vgc <C|)> (.06):97
+Bgc → <G|(> Vgg <G|)> (.06):3
+Bgc → <G|(> Vgu <U|)> (.06):31
+Bgc → <U|(> Vua <A|)> (.06):65
+Bgc → <U|(> Vuc <C|)> (.06):1
+Bgc → <U|(> Vug <G|)> (.06):36
+Bgc → <U|(> Vuu <U|)> (.06):3
+Bgg → <A|(> Vaa <A|)> (.06):1
+Bgg → <A|(> Vac <C|)> (.06):1
+Bgg → <A|(> Vag <G|)> (.06):1
+Bgg → <A|(> Vau <U|)> (.06):1
+Bgg → <C|(> Vca <A|)> (.06):1
+Bgg → <C|(> Vcc <C|)> (.06):1
+Bgg → <C|(> Vcg <G|)> (.06):2
+Bgg → <C|(> Vcu <U|)> (.06):1
+Bgg → <G|(> Vga <A|)> (.06):1
+Bgg → <G|(> Vgc <C|)> (.06):2
+Bgg → <G|(> Vgg <G|)> (.06):1
+Bgg → <G|(> Vgu <U|)> (.06):1
+Bgg → <U|(> Vua <A|)> (.06):1
+Bgg → <U|(> Vuc <C|)> (.06):1
+Bgg → <U|(> Vug <G|)> (.06):2
+Bgg → <U|(> Vuu <U|)> (.06):1
+Bgu → <A|(> Vaa <A|)> (.06):2
+Bgu → <A|(> Vac <C|)> (.06):1
+Bgu → <A|(> Vag <G|)> (.06):2
+Bgu → <A|(> Vau <U|)> (.06):13
+Bgu → <C|(> Vca <A|)> (.06):1
+Bgu → <C|(> Vcc <C|)> (.06):1
+Bgu → <C|(> Vcg <G|)> (.06):30
+Bgu → <C|(> Vcu <U|)> (.06):1
+Bgu → <G|(> Vga <A|)> (.06):1
+Bgu → <G|(> Vgc <C|)> (.06):33
+Bgu → <G|(> Vgg <G|)> (.06):1
+Bgu → <G|(> Vgu <U|)> (.06):6
+Bgu → <U|(> Vua <A|)> (.06):18
+Bgu → <U|(> Vuc <C|)> (.06):1
+Bgu → <U|(> Vug <G|)> (.06):5
+Bgu → <U|(> Vuu <U|)> (.06):1
+Bua → <A|(> Vaa <A|)> (.06):2
+Bua → <A|(> Vac <C|)> (.06):1
+Bua → <A|(> Vag <G|)> (.06):2
+Bua → <A|(> Vau <U|)> (.06):44
+Bua → <C|(> Vca <A|)> (.06):2
+Bua → <C|(> Vcc <C|)> (.06):1
+Bua → <C|(> Vcg <G|)> (.06):55
+Bua → <C|(> Vcu <U|)> (.06):1
+Bua → <G|(> Vga <A|)> (.06):1
+Bua → <G|(> Vgc <C|)> (.06):60
+Bua → <G|(> Vgg <G|)> (.06):1
+Bua → <G|(> Vgu <U|)> (.06):8
+Bua → <U|(> Vua <A|)> (.06):55
+Bua → <U|(> Vuc <C|)> (.06):1
+Bua → <U|(> Vug <G|)> (.06):9
+Bua → <U|(> Vuu <U|)> (.06):1
+Buc → <A|(> Vaa <A|)> (.06):1
+Buc → <A|(> Vac <C|)> (.06):1
+Buc → <A|(> Vag <G|)> (.06):1
+Buc → <A|(> Vau <U|)> (.06):1
+Buc → <C|(> Vca <A|)> (.06):1
+Buc → <C|(> Vcc <C|)> (.06):1
+Buc → <C|(> Vcg <G|)> (.06):2
+Buc → <C|(> Vcu <U|)> (.06):1
+Buc → <G|(> Vga <A|)> (.06):1
+Buc → <G|(> Vgc <C|)> (.06):1
+Buc → <G|(> Vgg <G|)> (.06):1
+Buc → <G|(> Vgu <U|)> (.06):1
+Buc → <U|(> Vua <A|)> (.06):1
+Buc → <U|(> Vuc <C|)> (.06):1
+Buc → <U|(> Vug <G|)> (.06):1
+Buc → <U|(> Vuu <U|)> (.06):1
+Bug → <A|(> Vaa <A|)> (.06):1
+Bug → <A|(> Vac <C|)> (.06):1
+Bug → <A|(> Vag <G|)> (.06):1
+Bug → <A|(> Vau <U|)> (.06):5
+Bug → <C|(> Vca <A|)> (.06):1
+Bug → <C|(> Vcc <C|)> (.06):1
+Bug → <C|(> Vcg <G|)> (.06):23
+Bug → <C|(> Vcu <U|)> (.06):1
+Bug → <G|(> Vga <A|)> (.06):4
+Bug → <G|(> Vgc <C|)> (.06):12
+Bug → <G|(> Vgg <G|)> (.06):1
+Bug → <G|(> Vgu <U|)> (.06):13
+Bug → <U|(> Vua <A|)> (.06):12
+Bug → <U|(> Vuc <C|)> (.06):2
+Bug → <U|(> Vug <G|)> (.06):6
+Bug → <U|(> Vuu <U|)> (.06):2
+Buu → <A|(> Vaa <A|)> (.06):1
+Buu → <A|(> Vac <C|)> (.06):1
+Buu → <A|(> Vag <G|)> (.06):1
+Buu → <A|(> Vau <U|)> (.06):2
+Buu → <C|(> Vca <A|)> (.06):1
+Buu → <C|(> Vcc <C|)> (.06):1
+Buu → <C|(> Vcg <G|)> (.06):2
+Buu → <C|(> Vcu <U|)> (.06):1
+Buu → <G|(> Vga <A|)> (.06):1
+Buu → <G|(> Vgc <C|)> (.06):2
+Buu → <G|(> Vgg <G|)> (.06):1
+Buu → <G|(> Vgu <U|)> (.06):2
+Buu → <U|(> Vua <A|)> (.06):2
+Buu → <U|(> Vuc <C|)> (.06):1
+Buu → <U|(> Vug <G|)> (.06):1
+Buu → <U|(> Vuu <U|)> (.06):1
+L → B (.50):402
+L → U L (.50):1347
+M → U (.50):293
+M → U M (.50):927
+S → B (.20):1
+S → L S (.20):129
+S → M U (.20):157
+S → U (.20):58
+S → U L (.20):10
+T → L S (.25):217
+T → M U (.25):137
+T → U (.25):2
+T → U L (.25):49
+U → <A|.> (.25):1207
+U → <C|.> (.25):402
+U → <G|.> (.25):714
+U → <U|.> (.25):652
+Vaa → Baa (.50):4
+Vaa → T (.50):1
+Vac → Bac (.50):2
+Vac → T (.50):1
+Vag → Bag (.50):4
+Vag → T (.50):1
+Vau → Bau (.50):213
+Vau → T (.50):38
+Vca → Bca (.50):3
+Vca → T (.50):1
+Vcc → Bcc (.50):3
+Vcc → T (.50):1
+Vcg → Bcg (.50):337
+Vcg → T (.50):126
+Vcu → Bcu (.50):3
+Vcu → T (.50):1
+Vga → Bga (.50):6
+Vga → T (.50):1
+Vgc → Bgc (.50):366
+Vgc → T (.50):114
+Vgg → Bgg (.50):4
+Vgg → T (.50):1
+Vgu → Bgu (.50):102
+Vgu → T (.50):18
+Vua → Bua (.50):229
+Vua → T (.50):66
+Vuc → Buc (.50):2
+Vuc → T (.50):1
+Vug → Bug (.50):71
+Vug → T (.50):45
+Vuu → Buu (.50):6
+Vuu → T (.50):1
