@@ -1,0 +1,101 @@
+<project name="JointRNACompression" default="jar" basedir=".">
+    <description>simple example build file</description>
+    <!-- set global properties for this build -->
+    <property name="src" location="src"/>
+    <property name="test-src" location="test"/>
+    <property name="build" location="build"/>
+    <property name="dist" location="dist"/>
+    <property name="lib" location="lib"/>
+    <property name="jarName" value="joint-rna-compression"/>
+    <property name="main-class" value="compression.Compressions"/>
+
+    <target name="init">
+        <!-- Create the time stamp -->
+        <tstamp/>
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build}"/>
+    </target>
+
+    <target name="compile" depends="init" description="compile the source">
+        <!-- Compile the Java code from ${src} into ${build} -->
+        <javac srcdir="${src}" destdir="${build}" debug="true">
+            <classpath>
+                <!-- <pathelement path="${classpath}"/> -->
+                <fileset dir="${lib}">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="compile-test" depends="compile" description="compile the tests">
+        <!-- Compile the Java code from ${test-src} into ${build} -->
+        <javac srcdir="${test-src}" destdir="${build}" debug="true">
+            <classpath>
+                <!-- <pathelement path="${classpath}"/> -->
+                <fileset dir="${lib}">
+                    <include name="*.jar"/>
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="dist" depends="compile" description="generate the distribution">
+        <!-- Create the distribution directory -->
+        <mkdir dir="${dist}/lib"/>
+        <!-- Put everything in ${build} into a jar file -->
+        <jar jarfile="${dist}/lib/${jarName}.jar" basedir="${build}"/>
+    </target>
+
+    <target name="clean" description="clean up">
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+    </target>
+
+    <!-- Group all dependencies into a big dependency-all.jar -->
+    <target name="copy-dependencies">
+        <mkdir dir="${dist}/lib"/>
+        <jar jarfile="${dist}/lib/all-dependencies.jar">
+            <zipgroupfileset dir="${lib}">
+                <include name="*.jar"/>
+            </zipgroupfileset>
+        </jar>
+    </target>
+
+    <!-- jar it, extract above dependency-all.jar and zip it with project files -->
+    <target name="jar" depends="clean,compile,copy-dependencies"
+            description="package, output to JAR">
+        <mkdir dir="${dist}"/>
+        <mkdir dir="${dist}/lib"/>
+        <jar jarfile="${dist}/${jarName}-with-dependencies.jar" basedir="${build}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+            <zipfileset src="${dist}/lib/all-dependencies.jar" excludes="META-INF/*.SF"/>
+        </jar>
+    </target>
+
+    <!-- run all JUnit tests, fail if any fails -->
+    <target name="test" depends="compile,compile-test">
+
+        <junit printsummary="yes" haltonfailure="no">
+
+            <classpath location="${build}" />
+            <classpath location="${lib}/junit-4.13.2.jar" />
+            <classpath location="${lib}/hamcrest-all-1.3.jar" />
+            <classpath location="${lib}/probabilistic-earley-parser-0.10.0.jar" />
+
+            <formatter type="xml"/>
+            <formatter type="plain"/>
+
+            <batchtest fork="yes" todir="${build}">
+                <fileset dir="${test-src}">
+                    <include name="**/*Test.java"/>
+                </fileset>
+            </batchtest>
+
+        </junit>
+    </target>
+
+</project>
