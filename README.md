@@ -1,6 +1,6 @@
-# Companion code for “RNA secondary structures: from ab initio prediction to better compression, and back”
+# Companion code for [“RNA secondary structures: from ab initio prediction to better compression, and back”](https://arxiv.org/abs/2302.11669)
 
-'
+
 For data from the experiments in the paper and how to reproduce them,
 please refer to the [Google Colab Notebook](https://colab.research.google.com/drive/1c6gxgr4Ud5t19kYGiqG5mXPUcPB8n3W9?usp=sharing).
 
