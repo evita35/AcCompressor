@@ -1,0 +1,2043 @@
+Index: CompressionsReorganised/src/compression/EarleyParserHarness.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/EarleyParserHarness.java b/CompressionsReorganised/src/compression/EarleyParserHarness.java
+--- a/CompressionsReorganised/src/compression/EarleyParserHarness.java	
++++ b/CompressionsReorganised/src/compression/EarleyParserHarness.java	
+@@ -12,16 +12,11 @@
+ import java.util.List;
+ import java.util.stream.Collectors;
+ 
+-/**
+- * @author USER
+- */
+ 
+ public class EarleyParserHarness {
+ 
+ 
+-    /**
+-     * @param args the command line arguments
+-     */
++
+     public static void main(String[] args) throws Exception {
+ 
+         System.out.println(Arrays.toString(args));
+@@ -68,7 +63,7 @@
+                 List<Rule> rules = encoder.leftmostDerivationFor(RNAWS);
+                 // Remove the first rule since this one is always <start> -> S from Earley parser
+                 rules.remove(0);
+-//                System.out.println("rules = " + rules);
++
+                 GenericRNADecoder decoder = new GenericRNADecoder(
+                         null, null, G.getGrammar(), G.getStartSymbol());
+                 RNAWithStructure decoded = decoder.decodeFromRules(rules);
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2.java	
+@@ -31,7 +31,6 @@
+         this.withNonCanonicalRules=withNonCanonicalRules  ;
+         ExpressionSemiring semiring = CountingExprSemiring.get();//used for Grammars with assignProbs automated
+ 
+-        //fileName= LocalConfig.G2File;
+ 
+         S = new NonTerminal("S");
+         NonTerminal L = new NonTerminal("L");
+Index: CompressionsReorganised/src/compression/ArithmeticEncoder.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/ArithmeticEncoder.java b/CompressionsReorganised/src/compression/ArithmeticEncoder.java
+--- a/CompressionsReorganised/src/compression/ArithmeticEncoder.java	
++++ b/CompressionsReorganised/src/compression/ArithmeticEncoder.java	
+@@ -3,15 +3,6 @@
+ 
+ import java.math.BigDecimal;
+ 
+-/*
+- * To change this license header, choose License Headers in Project Properties.
+- * To change this template file, choose Tools | Templates
+- * and open the template in the editor.
+- */
+-/**
+- *
+- * @author USER
+- */
+ public interface ArithmeticEncoder {
+ 
+     /**
+Index: CompressionsReorganised/src/compression/grammar/PairOfCharTerminal.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/grammar/PairOfCharTerminal.java b/CompressionsReorganised/src/compression/grammar/PairOfCharTerminal.java
+--- a/CompressionsReorganised/src/compression/grammar/PairOfCharTerminal.java	
++++ b/CompressionsReorganised/src/compression/grammar/PairOfCharTerminal.java	
+@@ -5,9 +5,7 @@
+ 
+ import java.util.Objects;
+ 
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- */
++
+ public final class PairOfCharTerminal implements Terminal<PairOfChar> {
+ 	private final PairOfChar chars;
+ 
+Index: CompressionsReorganised/test/SampleInstance4Test.java
+===================================================================
+diff --git a/CompressionsReorganised/test/SampleInstance4Test.java b/CompressionsReorganised/test/SampleInstance4Test.java
+--- a/CompressionsReorganised/test/SampleInstance4Test.java	
++++ b/CompressionsReorganised/test/SampleInstance4Test.java	
+@@ -22,10 +22,6 @@
+ 
+ import java.io.IOException;
+ import java.util.ArrayList;
+-/**
+- *
+- * @author USER
+- */
+ 
+ public class  SampleInstance4Test {
+ 
+Index: CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfCharTerminal.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfCharTerminal.java b/CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfCharTerminal.java
+--- a/CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfCharTerminal.java	
++++ b/CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfCharTerminal.java	
+@@ -5,9 +5,7 @@
+ 
+ import java.util.Objects;
+ 
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- */
++
+ public final class IgnoringSecondPartPairOfCharTerminal implements Terminal<IgnoringSecondPartPairOfChar> {
+ 	private final IgnoringSecondPartPairOfChar chars;
+ 
+Index: CompressionsReorganised/src/compression/LocalConfig.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/LocalConfig.java b/CompressionsReorganised/src/compression/LocalConfig.java
+--- a/CompressionsReorganised/src/compression/LocalConfig.java	
++++ b/CompressionsReorganised/src/compression/LocalConfig.java	
+@@ -1,12 +1,7 @@
+ package compression;
+ 
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- */
+ public class LocalConfig {//test run
+ 
+-	public static final String GIT_ROOT = "C:/Users/evita/OneDrive/Documents/GitHub/compressed-rna/";
+-//	public static final String GIT_ROOT = "/home/swild/rna/";
+-
++	public static final String GIT_ROOT = "C:\\Users\\evita\\OneDrive\\Documents\\GitHub\\compressed-rna\\";
+ }
+ 
+Index: CompressionsReorganised/test/ExactArithmeticCoderTest.java
+===================================================================
+diff --git a/CompressionsReorganised/test/ExactArithmeticCoderTest.java b/CompressionsReorganised/test/ExactArithmeticCoderTest.java
+--- a/CompressionsReorganised/test/ExactArithmeticCoderTest.java	
++++ b/CompressionsReorganised/test/ExactArithmeticCoderTest.java	
+@@ -8,9 +8,7 @@
+ import java.math.BigDecimal;
+ import java.math.RoundingMode;
+ 
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- */
++
+ public class ExactArithmeticCoderTest {
+ 
+ 
+Index: CompressionsReorganised/src/compression/grammar/RNAWithStructure.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/grammar/RNAWithStructure.java b/CompressionsReorganised/src/compression/grammar/RNAWithStructure.java
+--- a/CompressionsReorganised/src/compression/grammar/RNAWithStructure.java	
++++ b/CompressionsReorganised/src/compression/grammar/RNAWithStructure.java	
+@@ -5,9 +5,7 @@
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- */
++
+ public class RNAWithStructure {
+ 	public final String primaryStructure, secondaryStructure;
+ 
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7Modified.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7Modified.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7Modified.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7Modified.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7Modified.java	
+@@ -14,13 +14,8 @@
+ import java.util.List;
+ import java.util.Map;
+ 
+-/**
+- * Grammar G7 from Dowell and Eddy 2004 , with the following modifications
+- *
+- * we eliminate the epsilon rule
+- * we include lone pairs by adding
+- *  P -> N
+- */
++
++
+ public class DowellGrammar7Modified implements SampleGrammar{
+ 
+     private final Grammar<PairOfChar> G;
+@@ -31,15 +26,13 @@
+     public Map<String, NonTerminal> stringNonTerminalMap;
+     public Map< String, Category> stringCategoryMap;
+ 
+-    //private String fileName;
+-    private String name = "DowellGrammar7Modified";
++     private String name = "DowellGrammar7Modified";
+ 
+     public DowellGrammar7Modified(boolean withNonCanonicalRules) {
+ 
+         this.withNonCanonicalRules=withNonCanonicalRules;
+         ExpressionSemiring semiring = CountingExprSemiring.get();//used for Grammars with assignProbs automated
+ 
+-        //fileName= LocalConfig.G7File;
+         S = new NonTerminal("S");
+ 
+         NonTerminal N = new NonTerminal("N");
+@@ -512,7 +505,6 @@
+         return withNonCanonicalRules;
+     }
+ 
+-    //public String getFileName(){return fileName;}
+     public NonTerminal getStartSymbol() {
+         return S;
+     }
+Index: CompressionsReorganised/test/LiuProbs4Test.java
+===================================================================
+diff --git a/CompressionsReorganised/test/LiuProbs4Test.java b/CompressionsReorganised/test/LiuProbs4Test.java
+--- a/CompressionsReorganised/test/LiuProbs4Test.java	
++++ b/CompressionsReorganised/test/LiuProbs4Test.java	
+@@ -13,9 +13,7 @@
+ import java.util.Map;
+ import java.util.Set;
+ 
+-/**
+- * @author Sebastian Wild (wild@liverpool.ac.uk)
+- */
++
+ public class LiuProbs4Test {
+ 
+ 	SampleGrammar Liu = new LiuGrammar(false);
+Index: CompressionsReorganised/src/compression/StaticRuleProbModel.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/StaticRuleProbModel.java b/CompressionsReorganised/src/compression/StaticRuleProbModel.java
+--- a/CompressionsReorganised/src/compression/StaticRuleProbModel.java	
++++ b/CompressionsReorganised/src/compression/StaticRuleProbModel.java	
+@@ -36,11 +36,8 @@
+             ruleProbs.put(nonTerminal, new HashMap<>());
+             BigDecimal left = BigDecimal.ZERO; //left stands for lower bound of Interval
+             for (org.leibnizcenter.cfg.rule.Rule rule : G.getRules(nonTerminal)) {
+-                
+-                //System.out.println("VALUE OF PROBS IS: "+probs.toString());
+-                //System.out.println("VALUE OF RULE IS: "+rule);
+-                //System.out.println(rule+" "+ probs.containsKey(rule));
+-                
++
++
+                 double p = probs.get(rule);
+                 BigDecimal pBD = BigDecimal.valueOf(p);//
+                 ArrayList<Category> rhs = new ArrayList<>(Arrays.asList(rule.getRight()));
+Index: CompressionsReorganised/test/Encode_N_Decode_CorrectlyTest.java
+===================================================================
+diff --git a/CompressionsReorganised/test/Encode_N_Decode_CorrectlyTest.java b/CompressionsReorganised/test/Encode_N_Decode_CorrectlyTest.java
+--- a/CompressionsReorganised/test/Encode_N_Decode_CorrectlyTest.java	
++++ b/CompressionsReorganised/test/Encode_N_Decode_CorrectlyTest.java	
+@@ -20,10 +20,6 @@
+ import java.util.Arrays;
+ import java.util.List;
+ 
+-/**
+- *
+- * @author USER
+- */
+ public class Encode_N_Decode_CorrectlyTest {
+     SampleGrammar G;
+     Dataset dataset ;
+@@ -32,26 +28,7 @@
+     boolean withHairpinLengthOne ;
+     List<SampleGrammar> listOfGrammars;
+     public Encode_N_Decode_CorrectlyTest() throws IOException {
+-        /*
+-        System.out.println(Arrays.toString(args));
+-        if (args.length < 4) {
+-            // just to have names
+-            System.out.println("Tests for <dataset> <training-dataset> <with-NCR> <with-Hairpin-one> <grammar1> <grammar2> ...");
+-            System.out.println("\t where <dataset> is the name of a subfolder in datasets ");
+-            System.out.println("\t where <training-dataset> is the name for the rule probabilities for the static model ");
+-            System.out.println("\t where <with-NCR> [true|false] whether or not to include rules for noncanonical base pairs ");
+-            System.out.println("\t where <with-Hairpin-one> [true|false] whether or not to include rules for hairpin size 1 (only for some grammars)");
+-            System.out.println("\t where <grammar1>, ... is a list of grammars from " + AllGrammars.allGrammarNames());
+-            System.exit(98);
+-        }
+ 
+-        dataset = new Dataset(args[0]);
+-        trainingDataset = new TrainingDataset(args[1]);
+-        withNonCanonicalRules = Boolean.parseBoolean(args[2]);
+-        withHairpinLengthOne = Boolean.parseBoolean(args[3]);
+-        listOfGrammars =
+-                AllGrammars.getGrammarsFromCmdLine(args, 4, withNonCanonicalRules, withHairpinLengthOne);
+-    */
+     }
+ 
+     @Test
+@@ -80,19 +57,5 @@
+             }
+         }
+     }
+-    /*
+-    @Test
+-    public void testCorrectness4Adaptive () throws IOException {
+-
+-        SampleInstance4Test SI4T2 = new SampleInstance4Test(RNAWS);
+-
+-        //SI4T.runEncodeNDecode();
+-
+-        SI4T2.runEncodeNDecode4Adaptive();
+-        RNAWithStructure rna = SI4T2.getRNABeforeEncoding();
+-        Assert.assertTrue(rna.equals(SI4T2.getRNAAfterDecoding()));
+-
+-
+-    }*/
+ 
+ }
+Index: CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfChar.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfChar.java b/CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfChar.java
+--- a/CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfChar.java	
++++ b/CompressionsReorganised/src/compression/grammar/IgnoringSecondPartPairOfChar.java	
+@@ -9,10 +9,7 @@
+ 
+ import java.util.Objects;
+ 
+-/**
+- * value-based class for pairs of characters
+- * @author USER
+- */
++
+ public final class IgnoringSecondPartPairOfChar {
+     private final char pry;//character for primary sequence
+     private final char sec;//character for secondary structure string
+Index: CompressionsReorganised/test/GenericRNAEncoderTest.java
+===================================================================
+diff --git a/CompressionsReorganised/test/GenericRNAEncoderTest.java b/CompressionsReorganised/test/GenericRNAEncoderTest.java
+--- a/CompressionsReorganised/test/GenericRNAEncoderTest.java	
++++ b/CompressionsReorganised/test/GenericRNAEncoderTest.java	
+@@ -47,10 +47,7 @@
+         List<Token<PairOfChar>> tokens = RNAWS.asTokens();
+         List<ParseTree> trees = new ArrayList<>();
+         List<ParseTree> trees2 = new ArrayList<>();
+-        //System.out.println("startSymbol " +startSymbol);         
+-        //System.out.println("tokens = " + tokens);
+ 
+-        
+         NonTerminal T = new NonTerminal("T");
+         PairOfCharTerminal gu = new PairOfChar('G', '.').asTerminal();
+         ParseTree der = parser.getViterbiParse(S, tokens);
+Index: CompressionsReorganised/src/compression/Interval.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/Interval.java b/CompressionsReorganised/src/compression/Interval.java
+--- a/CompressionsReorganised/src/compression/Interval.java	
++++ b/CompressionsReorganised/src/compression/Interval.java	
+@@ -5,10 +5,7 @@
+  * To change this template file, choose Tools | Templates
+  * and open the template in the editor.
+  */
+-/**
+- *
+- * @author USER
+- */
++
+ import java.math.BigDecimal;
+ 
+ public interface Interval {
+Index: CompressionsReorganised/src/compression/grammar/RNAGrammar.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/grammar/RNAGrammar.java b/CompressionsReorganised/src/compression/grammar/RNAGrammar.java
+--- a/CompressionsReorganised/src/compression/grammar/RNAGrammar.java	
++++ b/CompressionsReorganised/src/compression/grammar/RNAGrammar.java	
+@@ -8,10 +8,7 @@
+ import org.leibnizcenter.cfg.category.Category;
+ import org.leibnizcenter.cfg.category.nonterminal.NonTerminal;
+ import org.leibnizcenter.cfg.grammar.Grammar;
+-/**
+- *
+- * @author USER
+- */
++
+ public class RNAGrammar {
+     Grammar<PairOfChar> g;
+     
+Index: CompressionsReorganised/src/compression/grammar/PairOfChar.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/grammar/PairOfChar.java b/CompressionsReorganised/src/compression/grammar/PairOfChar.java
+--- a/CompressionsReorganised/src/compression/grammar/PairOfChar.java	
++++ b/CompressionsReorganised/src/compression/grammar/PairOfChar.java	
+@@ -10,10 +10,7 @@
+ 
+ import java.util.Objects;
+ 
+-/**
+- * value-based class for pairs of characters
+- * @author USER
+- */
++
+ public final class PairOfChar {
+     private final char pry;//character for primary sequence
+     private final char sec;//character for secondary structure string
+Index: CompressionsReorganised/src/compression/AdaptiveRuleProbModel.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/AdaptiveRuleProbModel.java b/CompressionsReorganised/src/compression/AdaptiveRuleProbModel.java
+--- a/CompressionsReorganised/src/compression/AdaptiveRuleProbModel.java	
++++ b/CompressionsReorganised/src/compression/AdaptiveRuleProbModel.java	
+@@ -19,19 +19,14 @@
+ import java.util.List;
+ import java.util.Map;
+ 
+-/**
+- *
+- * @author Eva
+- */
+-public class AdaptiveRuleProbModel implements RuleProbModel {
++ public class AdaptiveRuleProbModel implements RuleProbModel {
+ 
+     private Map<NonTerminal, Map<List<Category>, Interval>> ruleProbs;
+     private final org.leibnizcenter.cfg.grammar.Grammar<PairOfChar> grammar;
+ 
+     private final Map<NonTerminal, Map<List<Category>, Long>> ruleFreq = new HashMap<>();
+ 
+-    /** precision is the scale used for BigDecimalIntervals, i.e., the number of decimal digits in the probability  */
+-    private final int precision;
++     private final int precision;
+ 
+     private Map<NonTerminal, Map<List<Category>, Interval>> getRuleProbs() {
+         if (ruleProbs == null) {
+@@ -52,19 +47,13 @@
+             }
+         }
+         fillRuleProbs();
+-        //System.out.println(ruleProbs);
+-        //System.out.println("\n\n");
+-
+     }
+ 
+     public AdaptiveRuleProbModel(org.leibnizcenter.cfg.grammar.Grammar<PairOfChar> G) {
+         this(G, 10);
+     }
+ 
+-    /**
+-     * update the Map for non terminals to the Map of rules to
+-     */
+-    private void updateRuleFrequency(Rule rule) {
++     private void updateRuleFrequency(Rule rule) {
+         if(rule.getLeft().toString().compareTo("<start>")==0)
+             return;
+         else
+@@ -73,10 +62,8 @@
+ 
+     private void updateRuleFrequency(NonTerminal lhs, List<Category> rhs) {
+         this.ruleProbs = null; // invalidate old probabilities
+-        // increment count
++
+         ruleFreq.get(lhs).merge(rhs, 1L, Long::sum);
+-        //System.out.println(ruleFreq);
+-        //System.out.println("\n\n");
+     }
+ 
+     private void fillRuleProbs() {
+Index: CompressionsReorganised/src/compression/PrintC.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/PrintC.java b/CompressionsReorganised/src/compression/PrintC.java
+--- a/CompressionsReorganised/src/compression/PrintC.java	
++++ b/CompressionsReorganised/src/compression/PrintC.java	
+@@ -25,7 +25,6 @@
+         String line;
+ 
+         while ((line = in.readLine()) != null) {
+-            //System.out.println("IN FIRST WHILE LOOP");
+             if(checkRuleType(line)){
+                 Map.Entry<String, Double> entry=splitRule(line);
+                 RulesWithTerminals.put(entry.getKey(),entry.getValue());
+@@ -108,20 +107,14 @@
+     }
+ 
+     static boolean similarRules(String lhs, ArrayList<String> rhs, String previousLhs, ArrayList<String> previousRhs){
+-        //System.out.println("GOT HERE 0"+lhs.compareTo(previousLhs)+" "+rhs.size()+" "+ previousRhs.size()+" ");
+ 
+         int index=0;
+         if(lhs.compareTo(previousLhs)==0 && rhs.size()== previousRhs.size()){
+ 
+-            //System.out.println("GOT HERE 1");
+-            for (String s: rhs){
+-                //System.out.println("value of s is: ="+s+"= value of previous RHS is ="+previousRhs.get(index)+"= ");
+-
+-                if(!s.contains("<U")&&!s.contains("<G")&&!s.contains("<C")&&!s.contains("<A")){//filtering out the terminals
+-                    //System.out.println("GOT HERE 2");
+-                    if(s.compareTo(previousRhs.get(index))!=0){//checks if the nonterminals in the rule are same
+-                        //System.out.println("GOT HERE 3");
+-                        return false;
++             for (String s: rhs){
++                 if(!s.contains("<U")&&!s.contains("<G")&&!s.contains("<C")&&!s.contains("<A")){//filtering out the terminals
++                     if(s.compareTo(previousRhs.get(index))!=0){//checks if the nonterminals in the rule are same
++                         return false;
+                     }
+ 
+                 }
+@@ -139,15 +132,13 @@
+         ArrayList<String> rhs = new ArrayList<>();
+         int i = 0;
+         while (str.charAt(i) != '0' && i < str.length()) {
+-            //System.out.println("IN WHILE LOOP");
+             int stop;
+             if (str.charAt(i) == '<') {
+                 System.out.println("Found a terminal in set of rules for nonTerminals");
+ 
+                 stop = i + 5;
+                 rhs.add(str.substring(i, stop));
+-                //System.out.println("printing out substring "+str.substring(start,stop));
+-                i = stop;
++                 i = stop;
+             }
+             if (i >= str.length())
+                 break;
+@@ -165,8 +156,7 @@
+             if (i != stop)
+                 rhs.add(str.substring(i, stop));
+             i = stop;
+-            //System.out.println(stop+" "+ str.length());
+-            if (stop >= str.length()) {
++             if (stop >= str.length()) {
+                 break;
+             }
+ 
+@@ -179,14 +169,12 @@
+             ArrayList<String> rhs=new ArrayList<>();
+ 
+         str = str.substring(0,str.lastIndexOf('(')-1);//removes the digits for prob after the rule
+-        //str = str.substring(0, str.length() - 5);//removes the 2 digit prob after the rule
+ 
+         int start = str.indexOf('\u2192') - 1;
+         lhs = str.substring(0, start);
+         start += 2;
+         while (str.charAt(start) != '0' && start < str.length()) {
+-            //System.out.println("IN WHILE LOOP");
+-            if (str.charAt(start) == '<') {
++             if (str.charAt(start) == '<') {
+                 rhs.add(str.substring(start, start + 5));
+                 start = start + 5;
+             }
+@@ -276,12 +264,8 @@
+             String str= entry.getKey();
+ 
+             ArrayList<String> rhs=new ArrayList<>();
+-            //int index=0;
+             String lhs;
+             str = str.substring(0,str.lastIndexOf('(')-1);//removes the digits for prob after the rule
+-            //str = str.substring(0, str.length() - 5);//removes the 2 digit prob after the rule
+-
+-            //str=str.substring(0,str.length()-5);//removes the 4 characters digit prob after the rule
+ 
+             int start= str.indexOf('\u2192')-1;
+             lhs=str.substring(0,start);
+@@ -302,12 +286,7 @@
+             System.out.println();
+             if(rhs.size()>1){
+                 for(String string: rhs){
+-/*
+-                    if(string.contains("(")||string.contains(")"))
+-                    {}
+-                    else
+-                        System.out.println("middle.push_back("+string+");");*/
+-                    if(string.contains("(")||string.contains(")"))
++                  if(string.contains("(")||string.contains(")"))
+                     {}else
+                     {
+ 
+@@ -326,7 +305,6 @@
+             }
+             index++;
+         }
+-        //for S'-> S
+         System.out.println("// S' -> S\n" +
+                 "    middle.push_back(S);\n" +
+                 "    one_rule r"+index+" = one_rule(Sprime, 0, 0, middle);\n" +
+Index: CompressionsReorganised/src/compression/ArithmeticDecoder.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/ArithmeticDecoder.java b/CompressionsReorganised/src/compression/ArithmeticDecoder.java
+--- a/CompressionsReorganised/src/compression/ArithmeticDecoder.java	
++++ b/CompressionsReorganised/src/compression/ArithmeticDecoder.java	
+@@ -8,10 +8,7 @@
+ import java.math.BigDecimal;
+ import java.util.List;
+ import org.leibnizcenter.cfg.rule.Rule;
+-/**
+- *
+- * @author USER
+- */
++
+ public interface ArithmeticDecoder {
+ 
+     Interval decodeNext(List<Interval> options );
+Index: CompressionsReorganised/src/compression/GenericRNAEncoder.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/GenericRNAEncoder.java b/CompressionsReorganised/src/compression/GenericRNAEncoder.java
+--- a/CompressionsReorganised/src/compression/GenericRNAEncoder.java	
++++ b/CompressionsReorganised/src/compression/GenericRNAEncoder.java	
+@@ -16,9 +16,6 @@
+ import java.util.Stack;
+ import java.util.function.Consumer;
+ 
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- */
+ public class GenericRNAEncoder {
+ 
+     ArithmeticEncoder acEncoder;
+@@ -55,9 +52,7 @@
+ 
+     public Rule ruleForNode(ParseTree node) {
+ 
+-        //SSystem.out.println(node);
+         List<ParseTree> children = node.getChildren();
+-        //System.out.println("IS CHILDREN NULL?" + (children.isEmpty() ? "yes" : "no"));
+         int noOfChildren = children.size();
+         NonTerminal lhs = Category.nonTerminal(node.category.toString());
+         Category[] rhs = new Category[noOfChildren];
+@@ -65,8 +60,6 @@
+             rhs[i] = children.get(i).getCategory();
+         }
+ 
+-        // System.out.println(" rhs to string" + node.rhs.toString());
+-        // System.out.println(grammar.toString()+" VALUE IS: "+grammar.getRules(NonTerminal.START));
+         if (node.category.equals(NonTerminal.START)) {
+             return Rule.create(LogSemiring.get(), 1.0, lhs, rhs);
+         } else {
+@@ -81,7 +74,6 @@
+ 
+         // split string into list of tokens (terminals)
+         List<Token<PairOfChar>> tokens = RNA.asTokens();
+-        //System.out.println("tokens = " + tokens+ "start ="+ startSymbol);
+         ParseTree der = parser.getViterbiParse(startSymbol, tokens);
+ 
+         List<Rule> leftmostDerivation = new ArrayList<>();
+@@ -90,7 +82,6 @@
+             public void accept(final ParseTree tree) {
+                 if (!Category.isTerminal(tree.getCategory())) {
+                     leftmostDerivation.add(ruleForNode(tree));
+-                    //System.out.println(addRule(tree));
+                 }
+             }
+         });
+Index: CompressionsReorganised/src/compression/Compressions.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/Compressions.java b/CompressionsReorganised/src/compression/Compressions.java
+--- a/CompressionsReorganised/src/compression/Compressions.java	
++++ b/CompressionsReorganised/src/compression/Compressions.java	
+@@ -18,10 +18,6 @@
+ import java.util.Map;
+ import java.util.stream.Collectors;
+ 
+-/**
+- * @author USER
+- */
+-
+ public class Compressions {
+ 
+ 
+@@ -29,10 +25,7 @@
+     public static final DateTimeFormatter DATE_TIME_FOMATTER
+                       = DateTimeFormatter.ofPattern(TIMESTAMP_PATTERN);
+ 
+-    /**
+-     * @param args the command line arguments
+-     */
+-    public static void main(String[] args) throws Exception {
++     public static void main(String[] args) throws Exception {
+ 
+ 
+         System.out.println(Arrays.toString(args));
+@@ -67,13 +60,8 @@
+         // Construct CSV headers
+ 
+         List<String> grammarHeader = new ArrayList<>();
+-        //List<String> modelsHeader = new ArrayList<>();
+-        grammarHeader.add("File Name");
+-        //grammarHeader.add("");
+-        //modelsHeader.add("");
+-        grammarHeader.add("File Size");
+-        //modelsHeader.add("");
+-        //grammarHeader.add("");
++         grammarHeader.add("File Name");
++          grammarHeader.add("File Size");
+ 
+ 
+ 
+@@ -82,8 +70,6 @@
+             grammarHeader.add(grammar.getName()+" SEMIADAPTIVE");
+             grammarHeader.add(grammar.getName()+" ADAPTIVE");
+ 
+-            //modelsHeader.add("STATIC MODEL");
+-            //modelsHeader.add("ADAPTIVE MODEL");
+         }
+ 
+         CSVFile out = new CSVFile(
+@@ -93,8 +79,6 @@
+                         + "-withNCR-" + withNonCanonicalRules
+                         + "-" + DATE_TIME_FOMATTER.format(LocalDateTime.now()) + ".csv"),
+                 grammarHeader);
+-        //System.out.println(grammarHeader);
+-        //out.appendRow(modelsHeader);
+ 
+         String RNA = "";
+         String DB = "";
+@@ -107,27 +91,13 @@
+ 
+             cells.add(String.format("%d",RNAWS.getNumberOfBases())+"");
+             for (SampleGrammar G : listOfGrammars) {
+-                //System.gc(); // Added to avoid seeing heap grow huge
+-                //System.out.println("String Before Encoding");
+-                //System.out.println(RNAWS);
+-                //compression using static prob model
+-                Map<Rule, Double> ruleProbs = G.readAssignProbs(trainingDataset.getRuleProbsForGrammar(G));
+-//                    G.setAssignProbs(ruleProbs);
+-                    //System.out.println("Assign probabilities is: "+ G.getAssignProbs());
+-                //G.setAssignProbs(G.getAssignProbs());
+-                //System.out.println("Grammar is: "+ G.getName());
+-                //System.out.println("Got Here!!!!!!!!!!");
+-                //System.out.println(file.toString());
+-                //System.out.println(String.valueOf(Files.size(Paths.get(file.toString()))));
+-
+-                ///////////***************compression using static model
++                 Map<Rule, Double> ruleProbs = G.readAssignProbs(trainingDataset.getRuleProbsForGrammar(G));
+                 ArithmeticEncoder AE = new BitSizeOnlyArithmeticEncoder();
+                 RuleProbModel RPMStatic = new StaticRuleProbModel(G.getGrammar(), ruleProbs);
+                 GenericRNAEncoderForPrecision GRAStatic = new GenericRNAEncoderForPrecision(RPMStatic, AE, G.getGrammar(), G.getStartSymbol());
+                 int encodedLength = GRAStatic.getPrecisionForRNACode(RNAWS);
+ 
+-               // System.out.print("ENCODED LENGTH IS"+encodedLength + "\t");
+-                cells.add(encodedLength + "");
++                 cells.add(encodedLength + "");
+ 
+                 ///////////*************compression using SemiAdaptiveRuleProbModel
+                 ArithmeticEncoder AE3 = new BitSizeOnlyArithmeticEncoder();
+@@ -135,21 +105,14 @@
+                 GenericRNAEncoderForPrecision GRASemiAdaptive = new GenericRNAEncoderForPrecision(RPMSemiAdaptive, AE3, G.getGrammar(), G.getStartSymbol());
+                  encodedLength = GRASemiAdaptive.getPrecisionForRNACode(RNAWS);
+ 
+-                // System.out.print("ENCODED LENGTH IS"+encodedLength + "\t");
+                 cells.add(encodedLength + "");
+ 
+                 ///////////*************compression using adaptive model
+                 ArithmeticEncoder AE2 = new BitSizeOnlyArithmeticEncoder();
+                 RuleProbModel RPMAdaptive = new AdaptiveRuleProbModel(G.getGrammar());
+-               // GenericRNAEncoder GRAdaptive = new GenericRNAEncoder(RPMAdaptive, AE2, G.getGrammar(), G.getStartSymbol());
+                 GenericRNAEncoderForPrecision GRAdaptive = new GenericRNAEncoderForPrecision(RPMAdaptive, AE2, G.getGrammar(), G.getStartSymbol());
+-                //String encodedStringAdaptive = GRAdaptive.encodeRNA(RNAWS);
+                 encodedLength = GRAdaptive.getPrecisionForRNACode(RNAWS);
+-               //System.out.print("ENCODED LENGTH IS"+encodedLength + "\t");
+                 cells.add(encodedLength + "");
+-                //System.out.println("Length of cells is: " +cells.size());
+-
+-
+             }
+             out.appendRow(cells);
+             System.out.println();
+Index: CompressionsReorganised/src/compression/GenericRNADecoder.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/GenericRNADecoder.java b/CompressionsReorganised/src/compression/GenericRNADecoder.java
+--- a/CompressionsReorganised/src/compression/GenericRNADecoder.java	
++++ b/CompressionsReorganised/src/compression/GenericRNADecoder.java	
+@@ -19,10 +19,6 @@
+ import java.util.LinkedList;
+ import java.util.List;
+ 
+-/**
+- *
+- * @author USER
+- */
+ public class GenericRNADecoder {
+ 
+     ArithmeticDecoder acDecoder;
+@@ -75,8 +71,6 @@
+         return getRNAString(decodeCategoryList(leftmostDerivation));
+ 
+     }
+-
+-    /** @deprecated  */
+     public List<PairOfChar> decodeString() {
+ 
+         NonTerminal nonT = startSymbol;
+@@ -84,41 +78,20 @@
+ 
+         while (derivationHasNonTerminal()) {
+             final List<Interval> options = model.getIntervalList(nonT);
+-            //int outcome =
++
+             Interval interval = acDecoder.decodeNext(options);
+ 
+ 
+             List<Category> rhs = model.getRhsFor(interval, nonT);
+             replaceNonTerminalInDerivation(rhs);
+-
+-            // ruleList.add(rhs);
+-            nonT = RNAGrammar.getLeftMostNT(leftmostDerivation);
+-            //To be continued.... SW: Looks fine to me as is!
+-            // encodedDecimalAsDouble = acDecoder.convertToDouble(encodedDecimal);
++             nonT = RNAGrammar.getLeftMostNT(leftmostDerivation);
++
+         }
+         //  ArrayList<Category> categoryList = decodeRNA(ruleList);;
+         List<PairOfChar> decodedRNA = decodeCategoryList(leftmostDerivation);
+         return decodedRNA;
+     }
+ 
+-
+-//
+-//    ArrayList<Category> decodeRNA(List<Rule> ruleList) {
+-//        ArrayList<Category> categoryList = new ArrayList<Category>();
+-//
+-//        for (Rule rhs : ruleList) {
+-//            for (Category cat : rhs.getRight()) {
+-//                if (Category.isTerminal(cat)) {
+-//                    categoryList.add(cat);
+-//                } else {
+-//                    ruleList = ruleList.subList(1, ruleList.size() - 1);
+-//                    categoryList.addAll(decodeRNA(ruleList));
+-//                }
+-//            }
+-//        }
+-//        return categoryList;
+-//    }
+-//
+     boolean derivationHasNonTerminal() {
+         //System.out.println("\n\n\n\n\n\n\n"+LeftToRightDer);
+         for (Category cat : leftmostDerivation) {
+Index: CompressionsReorganised/src/compression/ExactArithmeticDecoder.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/ExactArithmeticDecoder.java b/CompressionsReorganised/src/compression/ExactArithmeticDecoder.java
+--- a/CompressionsReorganised/src/compression/ExactArithmeticDecoder.java	
++++ b/CompressionsReorganised/src/compression/ExactArithmeticDecoder.java	
+@@ -38,13 +38,11 @@
+ 
+     @Override
+     public Interval decodeNext(List<Interval> options) {
+-        //System.out.println(options.toString());
+-       // System.out.print(encodedDecimal);
++
+         Interval interval = BigDecimalInterval.getIntervalFor(encodedDecimal, options);
+-        //System.out.print(interval.toString());
+         encodedDecimal = decodeNext(interval, encodedDecimal);
+         return interval;
+-        //to be continued......  SW: Looks fine to me as is!
++
+     }
+ 
+ }
+Index: CompressionsReorganised/src/compression/BigDecimalInterval.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/BigDecimalInterval.java b/CompressionsReorganised/src/compression/BigDecimalInterval.java
+--- a/CompressionsReorganised/src/compression/BigDecimalInterval.java	
++++ b/CompressionsReorganised/src/compression/BigDecimalInterval.java	
+@@ -7,11 +7,7 @@
+ import java.util.Objects;
+ 
+ import org.leibnizcenter.cfg.category.nonterminal.NonTerminal;
+-
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- */
+-public class BigDecimalInterval implements Interval {
++ public class BigDecimalInterval implements Interval {
+ 
+     private final BigDecimal lowerBound;
+     private final BigDecimal length;
+@@ -33,26 +29,19 @@
+         this.lnLength = lnLength;
+     }
+ 
+-    /**
+-     *
+-     * @param bCode
+-     * @return
+-     */
+-    //method to convert the binary code back to a decimal value
+-    public static BigDecimal binaryToDecimal(String bCode) {
++      public static BigDecimal binaryToDecimal(String bCode) {
+ 
+         BigDecimal decimal = BigDecimal.ZERO;//stores the decimal equivalent of the binary code
+         BigDecimal binaryplace = BigDecimal.valueOf(0.5);
+         for (int i = 0; i < bCode.length(); i++)//starts reading the string after the decimal point
+         {
+-            //System.out.print((int)(bCode.charAt(i)));//reads each character of the binary string  and converts to an integer
+-            // System.out.println();
+-            if ((int) (bCode.charAt(i)) == 49) {//49 is the integer equivalent for character '1'
++             if ((int) (bCode.charAt(i)) == 49) {//49 is the integer equivalent for character '1'
+                 decimal = decimal.add(binaryplace);//adds the fractional place value
+             }
+             binaryplace = binaryplace.divide(BigDecimal.valueOf(2));//divides by 2 to get the next binary fraction place value
+         }
+-        //System.out.print(decimal);
++
++
+         return decimal;//returns the decimal  value
+     }
+ 
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3.java	
+@@ -31,8 +31,6 @@
+ 		this.withNonCanonicalRules = withNonCanonicalRules;
+         ExpressionSemiring semiring = CountingExprSemiring.get();//used for Grammars with assignProbs automated
+ 
+-        //fileName= LocalConfig.G3File;
+-
+         S = new NonTerminal("S");
+         NonTerminal L = new NonTerminal("L");
+         NonTerminal R = new NonTerminal("R");
+@@ -130,14 +128,11 @@
+                     .addRule(L, uo, S, cc)
+                     .addRule(L, uo, S, uc);
+ 
+-				// etc
+-				// same for L
++
+ 		}
+ 
+                 G=Gb.build();
+-        /*
+-        System.out.println(
+-                "G = " + G);*/
++
+ 
+     }
+ 
+@@ -147,7 +142,6 @@
+     }
+ 
+ 
+-    //public String getFileName(){return fileName;}
+     public NonTerminal getStartSymbol() {
+         return S;
+     }
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6Bound.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6Bound.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6Bound.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6Bound.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6Bound.java	
+@@ -20,9 +20,7 @@
+ import org.leibnizcenter.cfg.grammar.Grammar;
+ import org.leibnizcenter.cfg.rule.Rule;
+ 
+-/*
+- * @author USER
+- */
++
+ public class DowellGrammar6Bound implements SampleGrammar {
+ 
+     private  Grammar<PairOfChar> G;
+@@ -35,17 +33,14 @@
+     public Map<String, NonTerminal> stringNonTerminalMap;
+     public Map< String, Category> stringCategoryMap;
+ 
+-    //public String fileName;
+ 
+     public DowellGrammar6Bound(boolean withNonCanonicalRules, boolean withHairpinLengthOne) {
+-        //LogSemiring semiring = LogSemiring.get();
+-        this.withNonCanonicalRules=withNonCanonicalRules;
++
++         this.withNonCanonicalRules=withNonCanonicalRules;
+         this.withHairpinLengthOne = withHairpinLengthOne;
+ 
+         ExpressionSemiring semiring = CountingExprSemiring.get();
+ 
+-        //fileName = LocalConfig.G6File;
+-
+         S = new NonTerminal("S");
+         NonTerminal T = new NonTerminal("T");
+         NonTerminal M = new NonTerminal("M");
+@@ -68,7 +63,7 @@
+ 
+         Grammar.Builder Gb = new Grammar.Builder<PairOfChar>("Dowell Eddy G6")
+                 .withSemiring(semiring) // this is the default anyways
+-                // .addRule(NonTerminal.START, S) // We are not supposed to add this; the library does this automatically
++
+                 .addRule(S, T, S)
+                 .addRule(S, T)
+ 
+@@ -80,10 +75,8 @@
+                 .addRule(U, gu)
+                 .addRule(U, uu)
+ 
+-/*
+-                .addRule(F, T, S)
+-                .addRule(F, B)
+-*/
++
++
+                 .addRule(M, T, S); //DECIDED TO REPLACE F WITH M SO THAT M IS ORDERED
+                 if (withHairpinLengthOne)
+                     Gb.addRule(M, T); // not in DE04
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1Bound.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1Bound.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1Bound.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1Bound.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1Bound.java	
+@@ -50,27 +50,7 @@
+         PairOfCharTerminal cu = new PairOfChar('C', '.').asTerminal();
+         PairOfCharTerminal gu = new PairOfChar('G', '.').asTerminal();
+         PairOfCharTerminal uu = new PairOfChar('U', '.').asTerminal();
+-/*
+-        stringNonTerminalMap = new HashMap<>();
+-        stringCategoryMap = new HashMap<>();
+-
+-        stringNonTerminalMap.put("S", S);
+ 
+-        stringCategoryMap.put("S", S);
+-        stringCategoryMap.put( "<A|(>", ao);
+-
+-        stringCategoryMap.put("<A|)>",ac);
+-        stringCategoryMap.put("<A|.>",au);
+-        stringCategoryMap.put("<U|(>",uo);
+-        stringCategoryMap.put("<U|)>",uc);
+-        stringCategoryMap.put("<U|.>",uu);
+-        stringCategoryMap.put("<G|(>",go);
+-        stringCategoryMap.put("<G|)>",gc);
+-        stringCategoryMap.put("<G|.>",gu);
+-        stringCategoryMap.put("<C|(>",co);
+-        stringCategoryMap.put("<C|)>",cc);
+-        stringCategoryMap.put("<C|.>",cu);
+-*/
+ 
+         Grammar.Builder<PairOfChar> Gb = new Grammar.Builder<PairOfChar>("Dowell Eddy 1")
+                 .withSemiring(semiring)//found in g1, g2, g3, g7 and g8
+Index: CompressionsReorganised/src/compression/samplegrammars/ArbitraryGrammar.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/ArbitraryGrammar.java b/CompressionsReorganised/src/compression/samplegrammars/ArbitraryGrammar.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/ArbitraryGrammar.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/ArbitraryGrammar.java	
+@@ -17,7 +17,7 @@
+ public class ArbitraryGrammar implements SampleGrammar {
+ 
+ 	private final Grammar<PairOfChar> G;
+-	//private final Map<Rule, Double> assignProbs;
++
+ 	private final NonTerminal S;
+ 
+ 	boolean withNonCanonicalRules;
+@@ -25,7 +25,7 @@
+ 	public Map<String, NonTerminal> stringNonTerminalMap;
+ 	public Map< String, Category> stringCategoryMap;
+ 
+-	//public String fileName;
++
+ 	public String name="ArbitraryGrammar";
+ 
+ 	public ArbitraryGrammar(boolean withNonCanonicalRules)  {
+@@ -439,63 +439,6 @@
+ 	}
+ 
+ 
+-	/*
+-	public void addToAssignProbs(String str){
+-		//System.out.println("printing non Terminal map"+stringNonTerminalMap);
+-		//System.out.println("printing string category map"+stringCategoryMap);
+-		System.out.print(str);
+-		CategoryMaps CM = new CategoryMaps();
+-		System.out.println("non terminal substring is: "+str.substring(0,str.indexOf('\u2192')-1)+"length: "+str.substring(0,str.indexOf('\u2192')-1).length());
+-		NonTerminal nt= CM.stringNonTerminalMap.get(str.substring(0,str.indexOf('\u2192')-1));
+-		System.out.println("printing nt"+ nt);
+-		int i=str.indexOf('\u2192')+1;//obtains the index position after the right arrow character
+-		ArrayList<Category> rhs= new ArrayList<>();
+-
+-		Double probForRule=Double.valueOf(0.0);
+-		Double probForAssign=Double.valueOf(0.0);
+-
+-		//System.out.println(str);
+-
+-		while(i<str.length()){
+-			//System.out.println("VALUE OF i is "+i);
+-			if(str.charAt(i)=='(')
+-			{
+-				probForRule=Double.parseDouble( str.substring(i+1, str.lastIndexOf(')')));
+-				//System.out.println(probForRule);
+-				i=str.lastIndexOf(')');
+-			}
+-			else if(str.charAt(i)=='<')
+-			{
+-				//System.out.println(str.substring(i,i+5));
+-				//System.out.println(stringCategoryMap.get(str.substring(i,i+5)));
+-				rhs.add(CM.stringCategoryMap.get(str.substring(i,i+5)));
+-
+-				i+=5;
+-			}
+-			else if(str.charAt(i)==':'){
+-				probForAssign=Double.parseDouble(str.substring(i+1));
+-				i=str.length();
+-				//System.out.println(probForAssign);
+-				break;
+-			}
+-			else if(str.charAt(i)==' ' || str.charAt(i)==')'){
+-				i++;
+-			}
+-			else
+-			{
+-				//System.out.println("PRINTING OUT SUBSTRING"+str.substring(i,i+1));
+-				int r=0;
+-				while(str.charAt(i+r)!=' '){r++;}//used to obtain the length of the non-terminal symbol
+-
+-				rhs.add(CM.stringNonTerminalMap.get(str.substring(i,i+r)));//
+-				i=i+r+1;
+-
+-			}
+-		}
+-		System.out.println(rhs+" "+nt+" "+probForRule+" "+probForAssign);
+-		Category[] catArray = rhs.toArray(new Category[0]);
+-		assignProbs.put(Rule.create(G.semiring,probForRule, nt, catArray), probForAssign);
+-	}*/
+ 
+ 	@Override
+ 	public boolean isWithNoncanonicalRules() {
+Index: CompressionsReorganised/src/compression/samplegrammars/ProbsForSemiAdaptiveRule.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/ProbsForSemiAdaptiveRule.java b/CompressionsReorganised/src/compression/samplegrammars/ProbsForSemiAdaptiveRule.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/ProbsForSemiAdaptiveRule.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/ProbsForSemiAdaptiveRule.java	
+@@ -17,10 +17,6 @@
+ import org.leibnizcenter.cfg.grammar.Grammar;
+ import org.leibnizcenter.cfg.rule.Rule;
+ 
+-/**
+- *
+- * @author USER
+- */
+ public final class ProbsForSemiAdaptiveRule
+ {
+ 
+@@ -53,30 +49,18 @@
+ 
+                 RNA = rna.primaryStructure;
+                 DB= rna.secondaryStructure;
+-                //RNA = rnaFile.nextLine();//stores the primary sequence
+-                //DB = rnaFile.nextLine();//stores the dot bracket string
+-                //System.out.println("RNA VALUE IS: " + RNA +" DB Value is :" + DB);
+-                //RNA = "GCU";
+-                //DB = "(.)";
+-                //System.out.println("RNA VALUE IS: " + RNA);
+-                // split string into list of tokens (terminals)
++
+ 
+                 RNAWS = new RNAWithStructure(RNA, DB);
+                 toCheckLoneBond=APC.getListOfRules(RNAWS);
+ 
+-                //System.out.println("list of rules is: "+toCheckLoneBond);
+ 
+                 if(toCheckLoneBond== null){counter++;}
+ 
+                 this.setListOfRules(toCheckLoneBond);
+-                // System.out.println("file: "+  file +" ran correctly");
+-
+-
+ 
+         this.setRulesToAvFrequency();
+         this.printRulesToProbs(this.getRulesToProbs());
+-        //System.out.println("COUNTER IS: "+ counter);
+-
+     }
+ 
+     public void setListOfRules(List<Rule> listOfRules) {
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4.java	
+@@ -20,9 +20,6 @@
+ import org.leibnizcenter.cfg.grammar.Grammar;
+ import org.leibnizcenter.cfg.rule.Rule;
+ 
+-/*
+- * @author USER
+- */
+ public class DowellGrammar4 implements SampleGrammar {
+ 
+     private final Grammar<PairOfChar> G;
+@@ -34,17 +31,15 @@
+     public Map<String, NonTerminal> stringNonTerminalMap;
+     public Map< String, Category> stringCategoryMap;
+ 
+-    //private String fileName;
+ 
+     public DowellGrammar4(boolean withNonCanonicalRules) {
+         this.withNonCanonicalRules=withNonCanonicalRules;
+-        //LogSemiring semiring = LogSemiring.get();
++
+         ExpressionSemiring semiring = CountingExprSemiring.get();
+ 
+         S = new NonTerminal("S");
+         NonTerminal T = new NonTerminal("T");
+ 
+-        //fileName= LocalConfig.G4File;
+ 
+         PairOfCharTerminal ao = new PairOfChar('A', '(').asTerminal();
+         PairOfCharTerminal co = new PairOfChar('C', '(').asTerminal();
+@@ -120,8 +115,7 @@
+                     .addRule(T, T, go, S, gc)
+                     .addRule(T, T, uo, S, cc)
+                     .addRule(T, T, uo, S, uc);
+-            // etc
+-            // same for L
++
+         }
+ 
+         G=Gb.build();
+@@ -135,8 +129,6 @@
+     }
+ 
+ 
+-    //public String getFileName(){return fileName;}
+-
+     public NonTerminal getStartSymbol() {
+         return S;
+     }
+Index: CompressionsReorganised/src/compression/samplegrammars/LiuGrammar.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/LiuGrammar.java b/CompressionsReorganised/src/compression/samplegrammars/LiuGrammar.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/LiuGrammar.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/LiuGrammar.java	
+@@ -20,9 +20,6 @@
+ import org.leibnizcenter.cfg.grammar.Grammar;
+ import org.leibnizcenter.cfg.rule.Rule;
+ 
+-/**
+- * Grammar from Liu et al 2008 with epsilon rules removed.
+- */
+ public class LiuGrammar implements SampleGrammar {
+ 
+     private final Grammar<PairOfChar> G;
+@@ -81,12 +78,7 @@
+                 .addRule(T, go, S, cc)
+                 .addRule(T, uo, S, gc)
+                 .addRule(T, go, S, uc)
+-                /* .addRule(S, ao, uc)
+-                .addRule(S, uo, ac)
+-                .addRule(S, co, gc)
+-                .addRule(S, go, cc)
+-                .addRule(S, uo, gc)
+-                .addRule(S, go, uc)*/
++
+                 .addRule(T, au)
+                 .addRule(T, cu)
+                 .addRule(T, gu)
+Index: CompressionsReorganised/src/compression/samplegrammars/ProbsForGrammarRules.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/ProbsForGrammarRules.java b/CompressionsReorganised/src/compression/samplegrammars/ProbsForGrammarRules.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/ProbsForGrammarRules.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/ProbsForGrammarRules.java	
+@@ -19,10 +19,6 @@
+ import java.util.*;
+ import java.util.stream.Collectors;
+ 
+-/**
+- *
+- * @author USER
+- */
+ public final class ProbsForGrammarRules {
+ 
+ 
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6.java	
+@@ -20,9 +20,6 @@
+ import org.leibnizcenter.cfg.grammar.Grammar;
+ import org.leibnizcenter.cfg.rule.Rule;
+ 
+-/*
+- * @author USER
+- */
+ public class DowellGrammar6 implements SampleGrammar {
+ 
+     private  Grammar<PairOfChar> G;
+@@ -35,17 +32,12 @@
+     public Map<String, NonTerminal> stringNonTerminalMap;
+     public Map< String, Category> stringCategoryMap;
+ 
+-    //public String fileName;
+-
+     public DowellGrammar6(boolean withNonCanonicalRules, boolean withHairpinLengthOne) {
+-        //LogSemiring semiring = LogSemiring.get();
++
+         this.withNonCanonicalRules = withNonCanonicalRules;
+         this.withHairpinLengthOne = withHairpinLengthOne;
+ 
+         ExpressionSemiring semiring = CountingExprSemiring.get();
+-
+-        //fileName = LocalConfig.G6File;
+-
+         S = new NonTerminal("S");
+         NonTerminal T = new NonTerminal("T");
+         NonTerminal F = new NonTerminal("F");
+@@ -64,9 +56,9 @@
+         PairOfCharTerminal uu = new PairOfChar('U', '.').asTerminal();
+ 
+         Grammar.Builder Gb = new Grammar.Builder<PairOfChar>("Dowell Eddy G6")
+-                                .withSemiring(semiring) // this is the default anyways
+-                // .addRule(NonTerminal.START, S) // We are not supposed to add this; the library does this automatically
+-                .addRule(S, T, S)
++                                .withSemiring(semiring)
++
++                 .addRule(S, T, S)
+                 .addRule(S, T)
+                 .addRule(T, ao, F, uc)
+                 .addRule(T, uo, F, ac)
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5Bound.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5Bound.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5Bound.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5Bound.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5Bound.java	
+@@ -18,10 +18,8 @@
+  import java.util.List;
+  import java.util.Map;
+ 
+- /**
+-  *
+-  * @author USER
+-  */
++
++
+  public class DowellGrammar5Bound implements SampleGrammar {
+ 
+      private  Grammar<PairOfChar> G;
+@@ -35,8 +33,8 @@
+      //private String fileName;
+ 
+      public DowellGrammar5Bound(boolean withNonCanonicalRules) {
+-         //LogSemiring semiring = LogSemiring.get();
+-         this.withNonCanonicalRules=withNonCanonicalRules;
++
++       this.withNonCanonicalRules=withNonCanonicalRules;
+ 
+          ExpressionSemiring semiring = CountingExprSemiring.get();
+ 
+@@ -44,7 +42,6 @@
+          NonTerminal B = new NonTerminal("B");
+          NonTerminal U = new NonTerminal("U");
+ 
+-         //fileName= LocalConfig.G5File;
+ 
+          PairOfCharTerminal ao = new PairOfChar('A', '(').asTerminal();
+          PairOfCharTerminal co = new PairOfChar('C', '(').asTerminal();
+@@ -61,7 +58,6 @@
+ 
+          Grammar.Builder<PairOfChar> Gb = new Grammar.Builder<PairOfChar>("Dowell Eddy 5")
+                                 .withSemiring(semiring) // this is the default anyways
+-                 //.addRule(NonTerminal.START, S) // We are not supposed to add this; the library does this automatically
+ 
+                  .addRule(S, B)
+                  .addRule(S, U)
+@@ -93,8 +89,8 @@
+                      .addRule(B, go, S, gc)
+                      .addRule(B, uo, S, cc)
+                      .addRule(B, uo, S, uc);
+-             // etc
+-             // same for L
++
++
+          }
+ 
+                  G=Gb.build();
+@@ -108,8 +104,6 @@
+      }
+ 
+ 
+-     //public String getFileName(){return fileName;}
+-
+      @Override
+      public NonTerminal getStartSymbol() {
+          return S;
+@@ -121,8 +115,7 @@
+      }
+      @Override
+      public List<Rule> getGrammarRules(){
+-         //b  System.out.println("GRAMMAR RULES ARE: " + new ArrayList<>(G.getAllRules()));
+-         return  new ArrayList<>(G.getAllRules());
++          return  new ArrayList<>(G.getAllRules());
+      }
+      @Override
+      public String getName (){
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3Bound.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3Bound.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3Bound.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3Bound.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar3Bound.java	
+@@ -24,13 +24,12 @@
+ 
+     private final NonTerminal S;
+     public String name = "DowellGrammar3Bound";
+-    //private String fileName;
++
+ 
+     public DowellGrammar3Bound(boolean withNonCanonicalRules) {
+ 		this.withNonCanonicalRules = withNonCanonicalRules;
+-        ExpressionSemiring semiring = CountingExprSemiring.get();//used for Grammars with assignProbs automated
++        ExpressionSemiring semiring = CountingExprSemiring.get();
+ 
+-        //fileName= LocalConfig.G3File;
+ 
+         S = new NonTerminal("S");
+         NonTerminal L = new NonTerminal("L");
+@@ -96,16 +95,9 @@
+                     .addRule(B, uo, S, cc)
+                     .addRule(B, uo, S, uc);
+ 
+-
+-
+-				// etc
+-				// same for L
+ 		}
+ 
+                 G=Gb.build();
+-        /*
+-        System.out.println(
+-                "G = " + G);*/
+ 
+     }
+ 
+@@ -114,8 +106,6 @@
+         return withNonCanonicalRules;
+     }
+ 
+-
+-    //public String getFileName(){return fileName;}
+     public NonTerminal getStartSymbol() {
+         return S;
+     }
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6BoundMirror.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6BoundMirror.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6BoundMirror.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6BoundMirror.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar6BoundMirror.java	
+@@ -18,9 +18,6 @@
+ import java.util.List;
+ import java.util.Map;
+ 
+-/*
+- * @author USER
+- */
+ public class DowellGrammar6BoundMirror implements SampleGrammar {
+ 
+     private  Grammar<PairOfChar> G;
+@@ -33,15 +30,12 @@
+     public Map<String, NonTerminal> stringNonTerminalMap;
+     public Map< String, Category> stringCategoryMap;
+ 
+-    //public String fileName;
+ 
+     public DowellGrammar6BoundMirror(boolean withNonCanonicalRules, boolean withHairpinLengthOne) {
+-        //LogSemiring semiring = LogSemiring.get();
+-        this.withNonCanonicalRules=withNonCanonicalRules;
++         this.withNonCanonicalRules=withNonCanonicalRules;
+ 
+         ExpressionSemiring semiring = CountingExprSemiring.get();
+ 
+-        //fileName = LocalConfig.G6File;
+ 
+         S = new NonTerminal("S");
+         NonTerminal T = new NonTerminal("T");
+@@ -64,7 +58,6 @@
+ 
+         Grammar.Builder Gb = new Grammar.Builder<PairOfChar>("Dowell Eddy G6 mirrored")
+                 .withSemiring(semiring) // this is the default anyways
+-                // .addRule(NonTerminal.START, S) // We are not supposed to add this; the library does this automatically
+                 .addRule(S, S, T)
+                 .addRule(S, T)
+ 
+@@ -102,9 +95,7 @@
+                     .addRule(B, go, F, gc)
+                     .addRule(B, uo, F, cc)
+                     .addRule(B, uo, F, uc);
+-
+-            // same for L
+-        }
++       }
+ 
+         G=Gb.build();
+ 
+@@ -115,9 +106,6 @@
+         return withNonCanonicalRules;
+     }
+ 
+-
+-    //public String getFileName(){return fileName;}
+-
+     public NonTerminal getStartSymbol() {
+         return S;
+     }
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8ModifiedNBound.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8ModifiedNBound.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8ModifiedNBound.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8ModifiedNBound.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8ModifiedNBound.java	
+@@ -31,7 +31,7 @@
+ 
+         this.withNonCanonicalRules=withNonCanonicalRules;
+         ExpressionSemiring semiring = CountingExprSemiring.get();//used for Grammars with assignProbs automated
+-        //fileName= LocalConfig.G8File;
++
+         S = new NonTerminal("S");
+ 
+         NonTerminal N = new NonTerminal("N");
+@@ -515,10 +515,6 @@
+         }
+                 G= Gb.build();
+ 
+-        /*
+-        System.out.println(
+-                "G = " + G);*/
+-            //assignProbs.put(Rule.create(semiring, 1.0, NonTerminal.START, S), 1.0); // should not be needed
+ 
+     }
+ 
+@@ -527,8 +523,7 @@
+         return withNonCanonicalRules;
+     }
+ 
+-    //public String getFileName(){return fileName;}
+-    public NonTerminal getStartSymbol() {
++     public NonTerminal getStartSymbol() {
+         return S;
+     }
+ 
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7ModifiedNBound.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7ModifiedNBound.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7ModifiedNBound.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7ModifiedNBound.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar7ModifiedNBound.java	
+@@ -13,13 +13,7 @@
+ import java.util.List;
+ import java.util.Map;
+ 
+-/**
+- * Grammar G7 from Dowell and Eddy 2004 , with the following modifications
+- *
+- * we eliminate the epsilon rule
+- * we include lone pairs by adding
+- *  P -> N
+- */
++
+ public class DowellGrammar7ModifiedNBound implements SampleGrammar{
+ 
+     private final Grammar<PairOfChar> G;
+@@ -30,21 +24,20 @@
+     public Map<String, NonTerminal> stringNonTerminalMap;
+     public Map< String, Category> stringCategoryMap;
+ 
+-    //private String fileName;
+-    private String name = "DowellGrammar7ModifiedNBound";
++     private String name = "DowellGrammar7ModifiedNBound";
+ 
+     public DowellGrammar7ModifiedNBound(boolean withNonCanonicalRules) {
+ 
+         this.withNonCanonicalRules=withNonCanonicalRules;
+         ExpressionSemiring semiring = CountingExprSemiring.get();//used for Grammars with assignProbs automated
+ 
+-        //fileName= LocalConfig.G7File;
+         S = new NonTerminal("S");
+ 
+         NonTerminal T = new NonTerminal("T");
+         NonTerminal L = new NonTerminal("L");
+         NonTerminal M = new NonTerminal("M");
+-        //NonTerminal I = new NonTerminal("I");
++
++
+         NonTerminal U = new NonTerminal("U");
+         NonTerminal B = new NonTerminal("B");
+ 
+@@ -534,7 +527,6 @@
+         return withNonCanonicalRules;
+     }
+ 
+-    //public String getFileName(){return fileName;}
+     public NonTerminal getStartSymbol() {
+         return S;
+     }
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar5.java	
+@@ -20,10 +20,7 @@
+ import org.leibnizcenter.cfg.grammar.Grammar;
+ import org.leibnizcenter.cfg.rule.Rule;
+ 
+-/**
+- *
+- * @author USER
+- */
++
+ public class DowellGrammar5 implements SampleGrammar {
+ 
+     private  Grammar<PairOfChar> G;
+@@ -34,17 +31,15 @@
+ 
+     public Map<String, NonTerminal> stringNonTerminalMap;
+     public Map< String, Category> stringCategoryMap;
+-    //private String fileName;
+ 
+     public DowellGrammar5(boolean withNonCanonicalRules) {
+-        //LogSemiring semiring = LogSemiring.get();
++
+         this.withNonCanonicalRules=withNonCanonicalRules;
+ 
+         ExpressionSemiring semiring = CountingExprSemiring.get();
+ 
+         S = new NonTerminal("S");
+ 
+-        //fileName= LocalConfig.G5File;
+ 
+         PairOfCharTerminal ao = new PairOfChar('A', '(').asTerminal();
+         PairOfCharTerminal co = new PairOfChar('C', '(').asTerminal();
+@@ -60,8 +55,7 @@
+         PairOfCharTerminal uu = new PairOfChar('U', '.').asTerminal();
+ 
+         Grammar.Builder<PairOfChar> Gb = new Grammar.Builder<PairOfChar>("Dowell Eddy 5")
+-                               .withSemiring(semiring) // this is the default anyways
+-                //.addRule(NonTerminal.START, S) // We are not supposed to add this; the library does this automatically
++                               .withSemiring(semiring)
+ 
+                 .addRule(S, ao, S, uc, S)
+                 .addRule(S, uo, S, ac, S)
+@@ -109,9 +103,7 @@
+                     .addRule(S, go, S, gc)
+                     .addRule(S, uo, S, cc)
+                     .addRule(S, uo, S, uc);
+-            // etc
+-            // same for L
+-        }
++                 }
+ 
+                 G=Gb.build();
+ 
+@@ -124,8 +116,6 @@
+     }
+ 
+ 
+-    //public String getFileName(){return fileName;}
+-
+     @Override
+     public NonTerminal getStartSymbol() {
+         return S;
+@@ -137,8 +127,8 @@
+     }
+     @Override
+     public List<Rule> getGrammarRules(){
+-        //b  System.out.println("GRAMMAR RULES ARE: " + new ArrayList<>(G.getAllRules()));
+-        return  new ArrayList<>(G.getAllRules());
++
++            return  new ArrayList<>(G.getAllRules());
+     }
+     @Override
+     public String getName (){
+Index: CompressionsReorganised/src/compression/structureprediction/PPVNSensitivityWriter.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/structureprediction/PPVNSensitivityWriter.java b/CompressionsReorganised/src/compression/structureprediction/PPVNSensitivityWriter.java
+--- a/CompressionsReorganised/src/compression/structureprediction/PPVNSensitivityWriter.java	
++++ b/CompressionsReorganised/src/compression/structureprediction/PPVNSensitivityWriter.java	
+@@ -37,7 +37,6 @@
+         String PredictionProgram=args[5];
+ 
+         List<String> grammarHeader = new ArrayList<>();
+-        //List<String> modelsHeader = new ArrayList<>();
+         grammarHeader.add("File Name");
+ 
+ 
+Index: CompressionsReorganised/src/compression/structureprediction/PredictionWriter.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/structureprediction/PredictionWriter.java b/CompressionsReorganised/src/compression/structureprediction/PredictionWriter.java
+--- a/CompressionsReorganised/src/compression/structureprediction/PredictionWriter.java	
++++ b/CompressionsReorganised/src/compression/structureprediction/PredictionWriter.java	
+@@ -34,17 +34,13 @@
+ import java.util.Map;
+ import compression.samplegrammars.SampleGrammar;
+ 
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- *
+- * Currently based on broken {@link Parser}.
+- */
++
+ @Deprecated
+ public class PredictionWriter {
+ 
+     public static Grammar<IgnoringSecondPartPairOfChar> convertSampleGrammar(SampleGrammar sampleGrammar, final Map<Rule, Double> ruleProbs) {
+-        // Use same nonterminals, but map terminals
+-        Grammar<PairOfChar> G = sampleGrammar.getGrammar();
++
++         Grammar<PairOfChar> G = sampleGrammar.getGrammar();
+         Map<Terminal<PairOfChar>, Terminal<IgnoringSecondPartPairOfChar>> terminalMap = new HashMap<>();
+         for (Terminal<PairOfChar> terminal : G.terminals) {
+             PairOfCharTerminal t = (PairOfCharTerminal) terminal;
+@@ -110,8 +106,7 @@
+             grammarHeader.add(grammar.getName() + " false Positive");
+             grammarHeader.add(grammar.getName() + " false Negative");
+ 
+-            //modelsHeader.add("STATIC MODEL");
+-            //modelsHeader.add("ADAPTIVE MODEL");
++
+         }
+ 
+         CSVFile out = new CSVFile(
+@@ -133,17 +128,11 @@
+             List<Token<IgnoringSecondPartPairOfChar>> tokens = convertTokens(RNAWS.asTokens());
+ 
+             for (SampleGrammar G : listOfGrammars) {
+-//				System.gc();
+-                //System.out.println("String Before Encoding");
+-                //System.out.println(RNAWS);
+-                //compression using static prob model
+-                Map<Rule, Double> ruleProbs = G.readAssignProbs(trainingDataset.getRuleProbsForGrammar(G));
+-                //System.out.println("Assign probabilities is: "+ G.getAssignProbs());
++                 Map<Rule, Double> ruleProbs = G.readAssignProbs(trainingDataset.getRuleProbsForGrammar(G));
+ 
+                 Grammar<IgnoringSecondPartPairOfChar> predictionGrammar = convertSampleGrammar(G, ruleProbs);
+                 Parser<IgnoringSecondPartPairOfChar> parser = new Parser<>(predictionGrammar);
+-                //System.out.println("tokens = " + tokens+ "start ="+ startSymbol);
+-                ParseTree der = parser.getViterbiParse(G.getStartSymbol(), tokens);
++                 ParseTree der = parser.getViterbiParse(G.getStartSymbol(), tokens);
+ 
+                 final StringBuilder builder = new StringBuilder();
+                 GenericRNAEncoder.traverseParseTree(der, node -> {
+Index: CompressionsReorganised/src/compression/structureprediction/ViterbiPredictor.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/structureprediction/ViterbiPredictor.java b/CompressionsReorganised/src/compression/structureprediction/ViterbiPredictor.java
+--- a/CompressionsReorganised/src/compression/structureprediction/ViterbiPredictor.java	
++++ b/CompressionsReorganised/src/compression/structureprediction/ViterbiPredictor.java	
+@@ -32,20 +32,12 @@
+ import java.util.Map;
+ import java.util.stream.Collectors;
+ 
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- *
+- * DO NOT USE.
+- * This is built on top of the broken stochastic parser in {@link Parser}
+- * and will silently produce nonsensical predictions.
+- *
+- */
++
+ @Deprecated
+ public class ViterbiPredictor {
+ 
+ 	public static Grammar<IgnoringSecondPartPairOfChar> convertSampleGrammar(SampleGrammar sampleGrammar, final Map<Rule, Double> ruleProbs) {
+-		// Use same nonterminals, but map terminals
+-		Grammar<PairOfChar> G = sampleGrammar.getGrammar();
++	 	Grammar<PairOfChar> G = sampleGrammar.getGrammar();
+ 		Map<Terminal<PairOfChar>, Terminal<IgnoringSecondPartPairOfChar>> terminalMap = new HashMap<>();
+ 		for (Terminal<PairOfChar> terminal : G.terminals) {
+ 			PairOfCharTerminal t = (PairOfCharTerminal) terminal;
+@@ -130,8 +122,7 @@
+ 
+ 
+ 		List<String> grammarHeader = new ArrayList<>();
+-		//List<String> modelsHeader = new ArrayList<>();
+-		grammarHeader.add("File Name");
++		 grammarHeader.add("File Name");
+ 
+ 		for (SampleGrammar grammar : listOfGrammars) {
+ 			grammarHeader.add(grammar.getName()+" No Of Pairs in Real Structure");
+@@ -139,8 +130,7 @@
+ 			grammarHeader.add(grammar.getName()+" false Positive");
+ 			grammarHeader.add(grammar.getName()+" false Negative");
+ 
+-			//modelsHeader.add("STATIC MODEL");
+-			//modelsHeader.add("ADAPTIVE MODEL");
++
+ 		}
+ 
+ 		CSVFile out = new CSVFile(
+@@ -162,18 +152,13 @@
+ 			List<Token<IgnoringSecondPartPairOfChar>> tokens = convertTokens(RNAWS.asTokens());
+ 
+ 			for (SampleGrammar G : listOfGrammars) {
+-//				System.gc();
+-				//System.out.println("String Before Encoding");
+-				//System.out.println(RNAWS);
+-				//compression using static prob model
++
+ 				Map<Rule, Double> ruleProbs = G.readAssignProbs(trainingDataset.getRuleProbsForGrammar(G));
+-				//System.out.println("Assign probabilities is: "+ G.getAssignProbs());
++
+ 
+ 				Grammar<IgnoringSecondPartPairOfChar> predictionGrammar = convertSampleGrammar(G, ruleProbs);
+ 				Parser<IgnoringSecondPartPairOfChar> parser = new Parser<>(predictionGrammar);
+-//				System.out.println("predictionGrammar = " + predictionGrammar);
+-				//System.out.println("tokens = " + tokens+ "start ="+ startSymbol);
+-				ParseTree der = parser.getViterbiParse(G.getStartSymbol(), tokens);
++ 				ParseTree der = parser.getViterbiParse(G.getStartSymbol(), tokens);
+ 
+ 				final StringBuilder builder = new StringBuilder();
+ 				GenericRNAEncoder.traverseParseTree(der, node -> {
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2Bound.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2Bound.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2Bound.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2Bound.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar2Bound.java	
+@@ -24,13 +24,13 @@
+ 
+     private final NonTerminal S;
+     private String name = "DowellGrammar2Bound";
+-    //private String fileName;
++
+ 
+     public DowellGrammar2Bound(boolean withNonCanonicalRules) {
+         this.withNonCanonicalRules=withNonCanonicalRules  ;
+         ExpressionSemiring semiring = CountingExprSemiring.get();//used for Grammars with assignProbs automated
+ 
+-        //fileName= LocalConfig.G2File;
++
+ 
+         S = new NonTerminal("S");
+         NonTerminal L = new NonTerminal("L");
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8Modified.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8Modified.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8Modified.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8Modified.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar8Modified.java	
+@@ -26,7 +26,6 @@
+ 
+ 
+     public String name="DowellGrammar8Modified";
+-    //public String fileName;
+ 
+     public DowellGrammar8Modified(boolean withNonCanonicalRules) {
+ 
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar1.java	
+@@ -47,27 +47,6 @@
+         PairOfCharTerminal cu = new PairOfChar('C', '.').asTerminal();
+         PairOfCharTerminal gu = new PairOfChar('G', '.').asTerminal();
+         PairOfCharTerminal uu = new PairOfChar('U', '.').asTerminal();
+-/*
+-        stringNonTerminalMap = new HashMap<>();
+-        stringCategoryMap = new HashMap<>();
+-
+-        stringNonTerminalMap.put("S", S);
+-
+-        stringCategoryMap.put("S", S);
+-        stringCategoryMap.put( "<A|(>", ao);
+-
+-        stringCategoryMap.put("<A|)>",ac);
+-        stringCategoryMap.put("<A|.>",au);
+-        stringCategoryMap.put("<U|(>",uo);
+-        stringCategoryMap.put("<U|)>",uc);
+-        stringCategoryMap.put("<U|.>",uu);
+-        stringCategoryMap.put("<G|(>",go);
+-        stringCategoryMap.put("<G|)>",gc);
+-        stringCategoryMap.put("<G|.>",gu);
+-        stringCategoryMap.put("<C|(>",co);
+-        stringCategoryMap.put("<C|)>",cc);
+-        stringCategoryMap.put("<C|.>",cu);
+-*/
+ 
+         Grammar.Builder<PairOfChar> Gb = new Grammar.Builder<PairOfChar>("Dowell Eddy 1")
+                 .withSemiring(semiring)//found in g1, g2, g3, g7 and g8
+Index: CompressionsReorganised/src/compression/SemiAdaptiveRuleProbModel.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/SemiAdaptiveRuleProbModel.java b/CompressionsReorganised/src/compression/SemiAdaptiveRuleProbModel.java
+--- a/CompressionsReorganised/src/compression/SemiAdaptiveRuleProbModel.java	
++++ b/CompressionsReorganised/src/compression/SemiAdaptiveRuleProbModel.java	
+@@ -23,19 +23,15 @@
+     /** Requires the rules in G and in probs to match in probability! */
+     public SemiAdaptiveRuleProbModel(Grammar<PairOfChar> G, NonTerminal startSymbol, RNAWithStructure rna) {
+         grammar=G;
+-        //obtains probability for each rule given the particular RNA
++
+         ProbsForSemiAdaptiveRule PFSAR = new ProbsForSemiAdaptiveRule(G, startSymbol, rna);
+         probs = PFSAR.getRulesToProbs();
+-        //System.out.println(probs.toString());
++
+         for (NonTerminal nonTerminal : G.getNonTerminals()) {
+             ruleProbs.put(nonTerminal, new HashMap<>());
+             BigDecimal left = BigDecimal.ZERO; //left stands for lower bound of Interval
+             for (org.leibnizcenter.cfg.rule.Rule rule : G.getRules(nonTerminal)) {
+ 
+-                //System.out.println("VALUE OF PROBS IS: "+probs.toString());
+-                //System.out.println("VALUE OF RULE IS: "+rule);
+-                //System.out.println(rule+" "+ probs.containsKey(rule));
+-
+                 double p = probs.get(rule);
+                 BigDecimal pBD = BigDecimal.valueOf(p);//
+                 ArrayList<Category> rhs = new ArrayList<>(Arrays.asList(rule.getRight()));
+@@ -44,20 +40,19 @@
+             }
+         }
+ 
+-        // printRuleProbs();
+     }
+ 
+     void printRuleProbs(){
+-        //System.out.println("PRINTING OUT RULE PROBS");
++
+         for (NonTerminal nt: ruleProbs.keySet()){
+-            //System.out.println(nt);
++
+             for(List<Category> catlist: ruleProbs.get(nt).keySet())
+                 System.out.println(catlist.toString()+" " +ruleProbs.get(nt).get(catlist).toString());
+         }
+     }
+     @Override
+     public List<Interval> getIntervalList(NonTerminal lhs){
+-        //System.out.println("VALUE OF NT IS: "+nt);
++
+         return new ArrayList<Interval> (ruleProbs.get(lhs).values());
+     }
+ 
+@@ -83,7 +78,7 @@
+             return new BigDecimalInterval(BigDecimal.ZERO, BigDecimal.ONE, 0.0);
+         }
+         else
+-            //System.out.println(ruleProbs.get(rule.getLeft()).get(Arrays.asList(rule.getRight())));
++
+             return ruleProbs.get(rule.getLeft()).get(Arrays.asList(rule.getRight())) ;
+     }
+ 
+Index: CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4Bound.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4Bound.java b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4Bound.java
+--- a/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4Bound.java	
++++ b/CompressionsReorganised/src/compression/samplegrammars/DowellGrammar4Bound.java	
+@@ -18,9 +18,6 @@
+ import java.util.List;
+ import java.util.Map;
+ 
+-/*
+- * @author USER
+- */
+ public class DowellGrammar4Bound implements SampleGrammar {
+ 
+     private final Grammar<PairOfChar> G;
+@@ -32,23 +29,21 @@
+     public Map<String, NonTerminal> stringNonTerminalMap;
+     public Map< String, Category> stringCategoryMap;
+ 
+-    //private String fileName;
+ 
+     public DowellGrammar4Bound(boolean withNonCanonicalRules) {
+         this.withNonCanonicalRules=withNonCanonicalRules;
+-        //LogSemiring semiring = LogSemiring.get();
++
+         ExpressionSemiring semiring = CountingExprSemiring.get();
+ 
+         S = new NonTerminal("S");
+-        //NonTerminal T = new NonTerminal("T");
+-        NonTerminal Q = new NonTerminal("Q");//replaced T with Q to maintain lexicographical ordering
+-        //since Q appears on RHS of some rules in which S is on the LHS
++
++        NonTerminal Q = new NonTerminal("Q");
++
+         NonTerminal B = new NonTerminal("B");
+         NonTerminal U = new NonTerminal("U");
+         NonTerminal C = new NonTerminal("C");
+         NonTerminal D = new NonTerminal("D");
+ 
+-        //fileName= LocalConfig.G4File;
+ 
+         PairOfCharTerminal ao = new PairOfChar('A', '(').asTerminal();
+         PairOfCharTerminal co = new PairOfChar('C', '(').asTerminal();
+@@ -64,8 +59,9 @@
+         PairOfCharTerminal uu = new PairOfChar('U', '.').asTerminal();
+ 
+         Grammar.Builder<PairOfChar> Gb = new Grammar.Builder<PairOfChar>("Dowell Eddy 4 bound")
+-                               .withSemiring(semiring) // this is the default anyways
+-                // .addRule(NonTerminal.START, S) // We are not supposed to add this; the library does this automatically
++                               .withSemiring(semiring)
++
++
+                 .addRule(S, U, S)
+ 
+                 .addRule(S, U)
+@@ -106,8 +102,7 @@
+                     .addRule(B, go, S, gc)
+                     .addRule(B, uo, S, cc)
+                     .addRule(B, uo, S, uc);
+-            // etc
+-            // same for L
++
+         }
+ 
+         G=Gb.build();
+@@ -121,8 +116,6 @@
+     }
+ 
+ 
+-    //public String getFileName(){return fileName;}
+-
+     public NonTerminal getStartSymbol() {
+         return S;
+     }
+Index: CompressionsReorganised/src/compression/ExactArithmeticEncoder.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/ExactArithmeticEncoder.java b/CompressionsReorganised/src/compression/ExactArithmeticEncoder.java
+--- a/CompressionsReorganised/src/compression/ExactArithmeticEncoder.java	
++++ b/CompressionsReorganised/src/compression/ExactArithmeticEncoder.java	
+@@ -13,10 +13,7 @@
+ import compression.grammar.*;
+ 
+ import org.leibnizcenter.cfg.rule.Rule;
+-/**
+- *
+- * @author USER
+- */
++
+ public class ExactArithmeticEncoder implements ArithmeticEncoder {
+ 
+     private BigDecimalInterval interval;
+@@ -44,12 +41,7 @@
+         return finalCode;
+     }//returns encoded string
+     
+-    /**
+-     *
+-     * @param lnLength
+-     * @param decimal
+-     * @return
+-     */
++
+ 
+     public int getFinalPrecision(){
+         return  (int)(((0 - interval.getLnLength())/Math.log(2.0))+4);
+@@ -58,7 +50,6 @@
+     public String encodeFinalInterval(double lnLength, BigDecimalInterval decimal) {
+ 
+         int precision;
+-        //precision = (int) ((0 - lnLength) / Math.log(2.0)) +2;
+         precision = (int) (((0 - lnLength) / Math.log(2.0))+4) ;
+         int k = 0;
+         String binValue = "";
+Index: CompressionsReorganised/src/compression/BitSizeOnlyArithmeticEncoder.java
+===================================================================
+diff --git a/CompressionsReorganised/src/compression/BitSizeOnlyArithmeticEncoder.java b/CompressionsReorganised/src/compression/BitSizeOnlyArithmeticEncoder.java
+--- a/CompressionsReorganised/src/compression/BitSizeOnlyArithmeticEncoder.java	
++++ b/CompressionsReorganised/src/compression/BitSizeOnlyArithmeticEncoder.java	
+@@ -4,9 +4,7 @@
+ import compression.BigDecimalInterval;
+ import compression.Interval;
+ 
+-/**
+- * @author Sebastian Wild (wild@uwaterloo.ca)
+- */
++
+ public class BitSizeOnlyArithmeticEncoder implements ArithmeticEncoder {
+ 
+ 	double lnLength;
